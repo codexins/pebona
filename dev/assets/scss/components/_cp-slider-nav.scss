@@ -1,0 +1,154 @@
+/**
+ * Components Slider nav
+ *
+ */
+
+.swiper-arrow {
+    margin-top: -23px;
+    cursor: pointer;
+    z-index: 9;
+    width: 46px;
+    height: 46px;
+    text-align: center;
+    line-height: 44px;
+    display: inline-block;
+    top: 40%;
+    border-radius: 100%;
+    color: #e2e2e2;
+    // @include cx-default-color(bgc, white);
+    @extend .pos-a;
+    @extend %cx-transition;
+
+    @include media-only(wide, min) {
+        opacity: 0;
+    }
+
+    i {
+        font-size: 50px;
+    }
+
+    &.prev {
+    	left: -35px;
+    }
+
+    &.next {
+    	right: -35px;
+    }
+
+    &:hover {
+    	// @include cx-color(primary, border);
+    	// @include cx-color(primary, bg);
+     //    @include cx-default-color(color, white);
+        @extend %color-primary;
+    }
+
+    &.top-nav {
+        opacity: 1;
+        top: 0;
+        margin-top: -78px;
+        width: 30px;
+        height: 30px;
+        line-height: 29px;
+
+        &.next {
+            right: 0;
+        }
+
+        &.prev {
+            left: auto;
+            right: 35px;
+        }
+
+        @include media-only(wide, max) {
+            margin-top: -75px;
+        }
+    }
+
+    @include respond-to(mobile) {
+        &.prev {
+            left: 7px;
+        }
+
+        &.next {
+            right: 7px;
+        }
+    }
+
+    @include media-only(small-mobile, max) {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+// .swiper-container-horizontal {
+//     .swiper-pagination-testimonial {
+//         position: absolute;
+//         text-align: center;
+//         z-index: 10;
+
+//         &.swiper-pagination-bullets {
+//             bottom: -45px;
+
+//             > span {
+//                 width: 12px;
+//                 height: 12px;
+//                 border: 1px solid #898989;
+//                 opacity: 1;
+//                 margin: 0px 7px;
+//                 @include cx-default-color(bgc, white);
+//                 @extend .pos-r;
+
+//                 &::before {
+//                     content: '';
+//                     width: 4px;
+//                     height: 4px;
+//                     background: none;
+//                     position: absolute;
+//                     top: 3px;
+//                     left: 3px;
+//                     @extend .circle;
+//                     @extend %cx-transition;
+//                 }
+//             }
+//             > span:hover,
+//             > .swiper-pagination-bullet-active {
+//                 @include cx-color(primary, border);
+
+//                 &::before {
+//                     @include cx-color(primary, bg);
+//                 }
+//             }
+//         }
+//     }
+
+//     .with-right-padding & {
+//         .swiper-pagination-bullets {
+//             padding-right: 30px;
+//         }
+//     }
+// }
+
+#primary_slider {
+    .swiper-pagination {
+        bottom: 20px;
+
+        .swiper-pagination-bullet {
+            border: none;
+            height: 11px;
+            margin: 0 5px;
+            width: 11px;
+            cursor: pointer;
+            background: #d7d7d7;
+            opacity: 1;
+            @extend %cx-transition;
+
+            &:hover,
+            &.swiper-pagination-bullet-active {
+                // @include cx-color(secondary, bg);
+                @extend %bgc-primary;
+            }
+        }
+    }
+}
+
+

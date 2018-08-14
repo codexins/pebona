@@ -1,0 +1,33 @@
+/**
+ * Components Header Search
+ *
+ */
+
+.header-search-area {
+	form {
+	    max-width: 200px;
+	}
+	input {
+		&[type="text"] {
+		    padding: 0 20px 0 0;
+		    height: 25px;
+		    z-index: 1;
+		    border: 0;
+		    font-size: 13px;
+		    font-weight: 300;
+		}
+	}
+
+	.header-search-btn {
+	    line-height: 0;
+	    width: 25px;
+	    padding: 0;
+	    height: 25px;
+	    @extend %bgc-transparent;
+
+	    i {
+			font-weight: bold;
+		    font-size: 20px;
+	    }
+	}
+}

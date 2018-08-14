@@ -1,0 +1,21 @@
+/**
+ * Layout Clients
+ *
+ */
+
+.client-carousel {
+    padding: 5px;
+    border: 1px solid $cx-border-color;
+    @extend %rounded-corners;
+	@extend %overflow-hidden;
+}
+
+// .client-section {
+// 	@include respond-to(mobile) {
+// 		padding-top: 0.7 * $cx-col-spacing;
+// 	}
+
+// 	@include media-only(small-mobile, max) {
+// 		padding-top: 0.5 * $cx-col-spacing;
+// 	}
+// }

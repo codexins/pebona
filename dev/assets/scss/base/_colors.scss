@@ -1,0 +1,405 @@
+// Color helpers
+
+// %primary-color-one {
+// 	color: cx-color(pallete-one, primary);
+// }
+
+// %primary-bg-one {
+// 	background: cx-color(pallete-one, primary);
+// }
+
+// %primary-border-one {
+// 	border-color: cx-color(pallete-one, primary);
+// }
+
+// %secondary-color-one {
+// 	color: cx-color(pallete-one, secondary);
+// }
+
+// %secondary-bg-one {
+// 	background: cx-color(pallete-one, secondary);
+// }
+
+// %secondary-border-one {
+// 	border-color: cx-color(pallete-one, secondary);
+// }
+
+// %header-bg-one {
+// 	background: cx-color(pallete-one, header);
+// }
+
+// %primary-color-two {
+// 	color: cx-color(pallete-two, primary);
+// }
+
+// %primary-bg-two {
+// 	background: cx-color(pallete-two, primary);
+// }
+
+// %primary-border-two {
+// 	border-color: cx-color(pallete-two, primary);
+// }
+
+// %secondary-color-two {
+// 	color: cx-color(pallete-two, secondary);
+// }
+
+// %secondary-bg-two {
+// 	background: cx-color(pallete-two, secondary);
+// }
+
+// %secondary-border-two {
+// 	border-color: cx-color(pallete-two, secondary);
+// }
+
+// %header-bg-two {
+// 	background: cx-color(pallete-two, header);
+// }
+
+// %primary-color-three {
+// 	color: cx-color(pallete-three, primary);
+// }
+
+// %primary-bg-three {
+// 	background: cx-color(pallete-three, primary);
+// }
+
+// %primary-border-three {
+// 	border-color: cx-color(pallete-three, primary);
+// }
+
+// %secondary-color-three {
+// 	color: cx-color(pallete-three, secondary);
+// }
+
+// %secondary-bg-three {
+// 	background: cx-color(pallete-three, secondary);
+// }
+
+// %secondary-border-three {
+// 	border-color: cx-color(pallete-three, secondary);
+// }
+
+// %header-bg-three {
+// 	background: cx-color(pallete-three, header);
+// }
+
+// %primary-color-four {
+// 	color: cx-color(pallete-four, primary);
+// }
+
+// %primary-bg-four {
+// 	background: cx-color(pallete-four, primary);
+// }
+
+// %primary-border-four {
+// 	border-color: cx-color(pallete-four, primary);
+// }
+
+// %secondary-color-four {
+// 	color: cx-color(pallete-four, secondary);
+// }
+
+// %secondary-bg-four {
+// 	background: cx-color(pallete-four, secondary);
+// }
+
+// %secondary-border-four {
+// 	border-color: cx-color(pallete-four, secondary);
+// }
+
+// %header-bg-four {
+// 	background: cx-color(pallete-four, header);
+// }
+
+// %color-secondary-1 {
+// 	color: $cx-secondary-color-1;
+// }
+
+// %bgc-secondary-1 {
+// 	background-color: $cx-secondary-color-1;
+// }
+
+%color-primary {
+	color: $cx-primary-color;
+}
+
+%color-secondary {
+	color: $cx-secondary-color;
+}
+
+%color-transparent {
+	color: transparent;
+}
+
+%color-offset {
+	color: $cx-offset-color;
+}
+
+%color-white {
+	color: #fff;
+}
+
+%color-dark {
+	color: #252525;
+}
+
+%color-black {
+	color: #000;
+}
+
+%bgc-primary {
+	background-color: $cx-primary-color;
+}
+
+%bgc-secondary {
+	background-color: $cx-secondary-color;
+}
+
+%bgc-transparent {
+	background-color: transparent;
+}
+
+%bgc-offset {
+	background-color: $cx-offset-color;
+}
+
+%bgc-white {
+	background-color: #fff;
+}
+
+%bgc-dark {
+	background-color: #252525;
+}
+
+%bgc-black {
+	background-color: #000;
+}
+
+%border-primary {
+	border-color: $cx-primary-color;
+}
+
+%border-secondary {
+	border-color: $cx-secondary-color;
+}
+
+%border-default {
+	border-color: $cx-border-color;
+}
+
+%border-offset {
+	border-color: $cx-offset-color;
+}
+
+%border-black {
+	border-color: #000;
+}
+
+
+
+// Color Schemes
+
+// .primary-color {
+// 	@include cx-color(primary, color);
+// }
+
+// .primary-bg-color {
+// 	@include cx-color(primary, bg);
+// }
+
+// .primary-border-color {
+// 	@include cx-color(primary, border);
+// }
+
+// .secondary-color {
+// 	@include cx-color(secondary, color);
+// }
+
+// .secondary-bg-color {
+// 	@include cx-color(secondary, bg);
+// }
+
+// .secondary-border-color {
+// 	@include cx-color(secondary, border);
+// }
+
+// .header-bg-color {
+// 	@include cx-color(header, bg);
+// }
+
+// .color-transparent {
+// 	@include cx-default-color(color, transparent);
+// }
+
+// .color-offset {
+// 	@include cx-default-color(color, offset);
+// }
+
+// .color-white {
+// 	@include cx-default-color(color, white);
+// }
+
+// .color-dark {
+// 	@include cx-default-color(color, dark);
+// }
+
+// .color-black {
+// 	@include cx-default-color(color, black);
+// }
+
+// .bgc-transparent {
+// 	@include cx-default-color(bgc, transparent);
+// }
+
+// .bgc-offset {
+// 	@include cx-default-color(bgc, offset);
+// }
+
+// .bgc-white {
+// 	@include cx-default-color(bgc, white);
+// }
+
+// .bgc-dark {
+// 	@include cx-default-color(bgc, dark);
+// }
+
+.color-primary {
+	@extend %color-primary;
+}
+
+.color-secondary {
+	@extend %color-secondary;
+}
+
+.color-transparent {
+	@extend %color-transparent;
+}
+
+.color-offset {
+	@extend %color-offset;
+}
+
+.color-white {
+	@extend %color-white;
+}
+
+.color-dark {
+	@extend %color-dark;
+}
+
+.color-black {
+	@extend %color-black;
+}
+
+.bgc-primary {
+	@extend %bgc-primary;
+}
+
+.bgc-secondary {
+	@extend %bgc-secondary;
+}
+
+.bgc-transparent {
+	@extend %bgc-transparent;
+}
+
+.bgc-offset {
+	@extend %bgc-offset;
+}
+
+.bgc-white {
+	@extend %bgc-white;
+}
+
+.bgc-dark {
+	@extend %bgc-dark;
+}
+
+.bgc-black {
+	@extend %bgc-black;
+}
+
+.border-primary {
+	@extend %border-primary;
+}
+
+.border-secondary {
+	@extend %border-secondary;
+}
+
+.border-default {
+	@extend %border-default;
+}
+
+.border-offset {
+	@extend %border-offset;
+}
+
+.border-black {
+	@extend %border-black;
+}
+
+
+/* Social Media Colors */
+
+.bg-facebook {
+	background: $facebook-color;
+	@extend %color-white;
+	&:hover,
+	&:focus {
+		background: darken($facebook-color, 10%);
+		@extend %color-white;
+	}
+}
+
+.bg-twitter {
+	background: $twitter-color;
+	@extend %color-white;
+	&:hover,
+	&:focus {
+		background: darken($twitter-color, 10%);
+		@extend %color-white;
+	}
+}
+
+.bg-gplus {
+	background: $gplus-color;
+	@extend %color-white;
+	&:hover,
+	&:focus {
+		background: darken($gplus-color, 10%);
+		@extend %color-white;
+	}
+}
+
+.bg-pinterest {
+	background: $pinterest-color;
+	@extend %color-white;
+	&:hover,
+	&:focus {
+		background: darken($pinterest-color, 10%);
+		@extend %color-white;
+	}
+}
+
+.bg-instagram {
+	background: $instagram-color;
+	@extend %color-white;
+	&:hover,
+	&:focus {
+		background: darken($instagram-color, 10%);
+		@extend %color-white;
+	}
+}
+
+.bg-linkedin {
+	background: $linkedin-color;
+	@extend %color-white;
+	&:hover,
+	&:focus {
+		background: darken($linkedin-color, 10%);
+		@extend %color-white;
+	}
+}
+

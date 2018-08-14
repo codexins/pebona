@@ -1,0 +1,46 @@
+/**
+ * Components To Top
+ *
+ */
+
+#to_top {
+	display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 140px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 999;
+    // @include cx-default-color(bgc, dark);
+    @extend .circle;
+    @extend %bgc-primary;
+	@extend %cx-transition;
+    // @include cx-default-color(color, white);
+    @extend %color-white;
+    @extend %overflow-hidden;
+
+    i {
+    	font-size: 16px;
+        top: 2px;
+        @extend .pos-r;
+
+    	&:first-child {
+    		right:-1.5px;
+    	}
+
+    	&:last-child {
+    		left:-1.5px;
+    	}
+    }
+
+    &:hover {
+    	// @include cx-color(primary, bg);
+        @extend %bgc-dark;
+    }
+}

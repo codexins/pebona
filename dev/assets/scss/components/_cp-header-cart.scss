@@ -1,0 +1,230 @@
+/**
+ * Components Header Cart
+ *
+ */
+
+.header-cart {
+	button {
+	    // background: none;
+	    // border: 1px solid #5c5c5c;
+	    // box-shadow: none;
+	    padding: 0;
+	    // width: 48px;
+	    height: auto;
+	    line-height: 1;
+	    // float: right;
+	    // text-align: center;
+	    cursor: pointer;
+	    @extend %rounded-corners;
+	    @extend .pos-r;
+
+	    i {
+		    font-size: 20px;
+		    left: -6px;
+		    font-weight: bold;
+		    // @include cx-default-color(color, black);
+		    @extend %color-black;
+		    @extend %cx-transition;
+		    @extend .pos-r;
+	    }
+
+	    .count-style {
+		    width: 17px;
+		    height: 17px;
+		    line-height: 17px;
+		    font-size: 10px;
+		    text-align: center;
+		    top: -5px;
+		    right: -5px;
+		    z-index: 2;
+		    @extend .pos-a;
+		    @extend .circle;
+		    // @include cx-default-color(color, white);
+		    // @include cx-color(secondary, bg);
+		    @extend %color-white;
+		    @extend %bgc-primary;
+
+		    // .color-scheme-three & {
+		    // 	@include cx-default-color(color, dark);
+		    // }
+	    }
+
+		&:focus,
+	    &:hover {
+	    	// @include cx-default-color(bgc, transparent);
+	    	// @include cx-color(primary, border);
+	    	@extend %bgc-transparent;
+	    	@extend %border-primary;
+	    	i {
+	    		// @include cx-color(primary, color);
+	    		@extend %color-primary;
+	    	}
+	    }
+
+	    &::after {
+	    	content: none;
+	    }
+	}
+
+	.dropdown-menu {
+	    max-height: 0;
+	    display: block;
+	    // opacity: 0;
+	    z-index: 9911;
+	    right: 0;
+	    left: auto;
+	    padding: 0;
+	    border: 0;
+        transition: all .3s ease-out;
+	    box-shadow: none;
+	    width: 355px;
+	    @extend %overflow-hidden;
+	    @extend %bgc-transparent;
+
+	    @include media-only(small-mobile, max) {
+			width: 290px;
+	    }
+
+	    &.open {
+		    max-height: 450px;
+		    // opacity: 1;
+	    }
+
+	    .shopping-cart-content {
+	    	margin: 15px 10px 10px;
+	    	box-shadow: 0 3px 9.3px 0.7px rgba(0,0,0,.15);
+	    	border-top: 2px solid $cx-primary-color;
+	    	@extend %bgc-white;
+	    }
+
+	    ul {
+		    max-height: 270px;
+		    overflow-y: auto;
+		    padding: 30px 20px 0;
+		    @extend %mb0;
+	    }
+    }
+
+	.single-cart-item {
+	    border-bottom: 1px solid $cx-border-color;
+	    margin-bottom: 20px;
+	    padding-bottom: 20px;
+		.shopping-cart-delete {
+		    top: -3px;
+		    font-size: 16px;
+		    @extend .pos-r;
+		}
+
+		.shopping-cart-img {
+			@extend .pos-r;
+		}
+
+		.shopping-cart-title {
+			padding-right: 10px;
+		}
+
+		.product-quantity {
+		    top: 0;
+		    left: 0;
+		    min-width: 25px;
+		    line-height: 25px;
+		    padding: 0;
+		    text-align: center;
+		    font-size: 14px;
+		    display: inline-block;
+		    @extend .circle;
+		    @extend .pos-a;
+		    // @include cx-color(primary, bg);
+		    // @include cx-default-color(color, white);
+		    @extend %bgc-primary;
+		    @extend %color-white;
+		}
+
+		img {
+			max-width: 70px;
+		}
+
+		h4 {
+			font-size: 15px;
+			font-weight: 400;
+			text-transform: capitalize;
+			margin-bottom: 5px;
+			padding-right: 5px;
+			@include cx-truncation(1, 1.2, #fff);
+		}
+
+		.cart-price {
+			margin-bottom: 5px;
+			font-weight: 500;
+		    font-size: 15px;
+			// @include cx-color(primary, color);
+			@extend %color-primary;
+		}
+
+		.shopping-cart-delete {
+			i {
+				// color: $cx-secondary-color-1;
+				@extend %color-secondary;
+			}
+		}
+
+		&:last-child {
+			border: 0;
+			@extend %mb0;
+		}
+	}
+
+	.shopping-cart-title {
+		span {
+			display: block;
+		    // @include cx-default-color(color, black);
+		    @extend %color-black;
+		}
+	}
+
+	.shopping-cart-total {
+		padding: 20px 20px 0;
+	    box-shadow: 0 -5px 20px -5px rgba(0, 0, 0, 0.08);
+		h4 {
+			font-size: 16px;
+		    line-height: 1.4;
+		    text-transform: capitalize;
+		    margin-bottom: 10px;
+		    font-weight: 500;
+		    > span {
+		    	float: right;
+	    	    @extend %color-primary;
+		    }
+		}
+	}
+
+	.shopping-cart-btn {
+		padding: 10px 20px 20px;
+		overflow: hidden;
+		> .default-btn {   		
+		    &:last-child {
+		    	float: right;
+		    }
+		}
+	}
+}
+
+.header-cart-area {
+	.list-inline {
+		.list-inline-item {
+			i {
+				font-size: 20px;
+				font-weight: bold;
+				line-height: 0;
+			}
+
+			a {
+				&:hover,
+				&:focus {
+					@extend %bgc-transparent;
+					@extend %color-primary;
+				}
+			}
+		}
+	}
+}

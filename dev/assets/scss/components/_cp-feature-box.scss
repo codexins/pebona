@@ -1,0 +1,113 @@
+/**
+ * Components Feature Box
+ *
+ */
+
+.feature-box {
+	border-left: 1px solid $cx-border-color;
+	border-right: 1px solid $cx-border-color;
+	@extend %mb-half;
+
+	// i {
+	//     font-size: 40px;
+	//     border: 1px solid $cx-border-color;
+	//     width: 70px;
+	//     height: 70px;
+	//     line-height: 70px;
+	//     text-align: center;
+	//     @extend %rounded-corners;
+	//     @extend %cx-transition;
+	//     @include cx-color(primary, color);
+
+	//     &::before {
+	// 	    right: -1px;
+	// 	    @extend .pos-r;
+	//     }
+
+	//     @include respond-to(tablet) {
+	//     	font-size: 30px;
+	//     	width: 60px;
+	//     	height: 60px;
+	//     	line-height: 60px;
+	//     }
+	// }
+
+	.feature-content {
+		text-align: center;
+		@extend %overflow-hidden;
+	}
+
+	h2 {
+	    font-size: 14px;
+	    font-weight: 500;
+	    margin-bottom: 5px;
+	    letter-spacing: -.025em;
+	    text-transform: capitalize;
+	    @extend %color-dark;
+
+	    @include media-only(wide, max) {
+			font-size: 13px;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    width: 100%;
+	    }
+	}
+
+	p {
+	    font-size: 13px;
+	    // @include cx-default-color(color, black);
+	    @extend %color-black;
+	    @extend %mb0;
+	    @include media-only(wide, max) {
+			font-size: 12px;
+	    }
+	}
+
+	// &:hover {
+	// 	i {
+	// 		@extend .circle;
+	// 	}
+	// }
+
+	&.type-2 {
+	    padding: 23px 20px;
+	    border: 1px solid $cx-border-color;
+	    @extend %rounded-corners;
+	    @extend %mb-half;
+
+	    @include media-only(wide, max) {
+	    	padding: 18px 20px;
+	    }
+
+	    i {
+		    width: 60px;
+		    height: 60px;
+		    line-height: 60px;
+		    font-size: 54px;
+		    border: 0;
+
+		    @include media-only(wide, max) {
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 40px;
+		    }
+	    }
+	}
+}
+
+.support-section {
+	margin-top: 1.1 * $cx-col-spacing;
+	margin-bottom: 0.1 * $cx-col-spacing;
+
+	.feature-box {
+		&:first-child {
+			border-left: 0;
+		}
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+}

@@ -1,0 +1,131 @@
+/**
+ * Components Header Dropdowns
+ *
+ */
+
+header {
+	.list-inline {
+		text-align: right;
+		@extend %mb0;
+		li {
+			&.list-inline-item {
+				margin-right: 0;
+				@extend .pos-r;
+				button {
+					font-size: 12px;
+					text-transform: capitalize;
+					cursor: pointer;
+					text-decoration: none;
+					height: auto;
+					line-height: 0;
+					// @include cx-default-color(bgc, transparent);
+					@extend %bgc-transparent;
+				}
+
+				i {
+					margin-left: 8px;
+					font-size: 12px;
+					backface-visibility: hidden;
+					transition: transform 0.3s;
+				}
+
+				.dropdown-toggle {
+					padding: 0 8px;
+					&::after {
+						content: none;
+					}
+
+					&.open {
+						i {
+							transform: rotate(180deg);
+						}
+					}
+				}
+
+				&:last-child {
+					.dropdown-toggle {
+						padding-right: 0;
+					}
+					&::after {
+						content: none;
+					}
+				}
+			}
+
+			img {
+				margin-right: 6px;
+			    top: -1.5px;
+			    @extend .pos-r;
+			}
+		}
+
+		.dropdown-menu {
+		    max-height: 0;
+		    display: block;
+		    border: 0;
+		    padding: 0;
+		    right: 0;
+		    left: auto;
+		    z-index: 9921;
+	        transition: all .3s ease-out;
+	        border-radius: 0;
+	        min-width: 120px;
+	        @extend %overflow-hidden;
+	        // @include cx-default-color(bgc, transparent);
+	        @extend %bgc-transparent;
+
+		    &.open {
+			    max-height: 200px;
+		    }
+
+		    ul {
+			    border: 1px solid #e5e5e5;
+			    border-top: 2px solid $cx-primary-color;
+			    left: 7px;
+			    margin: 15px 0 0;
+			    padding: 10px;
+			    box-shadow: none;
+			    min-width: 120px;
+			    list-style: none;
+			    // @include cx-default-color(bgc, white);
+			    @extend %bgc-white;
+
+				li {
+				    a {
+				    	display: block;
+					    color: #000;
+					    font-size: 12px;
+					    text-decoration: none;
+					    padding: 3px 10px;
+					    line-height: 22px;
+					    text-align: left;
+
+					    &.current,
+					    &:hover,
+					    &:focus {
+					    	@extend %color-white;
+					    	@extend %bgc-primary;
+					    }
+				    }
+				    &:last-child {
+				    	a {
+				    		border-bottom: 0;
+				    		@extend %pb0;
+				    		@extend %mb0;
+				    	}
+				    }
+				}
+		    }
+		}
+
+		// @include media-only(small-mobile, max) {
+		// 	> li {
+		// 		&.list-inline-item {
+		// 			&::after {
+		// 				content: none;
+		// 			}
+		// 		}
+		// 	}
+		// }
+	}
+}

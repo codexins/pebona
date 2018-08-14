@@ -1,0 +1,45 @@
+/**
+ * Components Breadcrumbs
+ *
+ */
+
+.breadcrumb {
+	padding: 25px 0 20px;
+    background: none;
+    border-radius: 0;
+    text-align: left;
+    border-bottom: 1px solid $cx-border-color;
+    @extend %mb-full;
+
+    .breadcrumb-item {
+    	font-size: 14px;
+    	@include cx-default-color(color, black);
+    	@extend .pos-r;
+
+		&:hover,
+		&:focus {
+			@include cx-color(primary, color);
+		}
+    	
+    	+ .breadcrumb-item {
+    		padding-left: 30px;
+	    	&::before {
+			    position: absolute;
+			    color: #222;
+			    content: "\e684";
+			    font-family: 'Pe-icon-7-stroke';
+			    font-size: 28px;
+			    width: 30px;
+			    height: 24px;
+			    line-height: 24px;
+			    text-align: center;
+			    left: 0;
+			    top: -2px;
+	    	}
+	    }
+
+	    &.active {
+	    	@include cx-color(primary, color);
+	    }
+    }
+}
