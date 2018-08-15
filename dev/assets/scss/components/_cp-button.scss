@@ -103,6 +103,14 @@
             width: 100%;
         }
     }
+
+    &.dark {
+        @extend %color-secondary;
+
+        &:hover {
+            @extend %color-primary;
+        }
+    }
 }
 
 .btn {

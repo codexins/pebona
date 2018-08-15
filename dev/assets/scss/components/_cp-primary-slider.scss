@@ -390,6 +390,55 @@
 		}
 	}
 
+	&.slider-type-3 {
+		.slide-content {
+			max-width: 60%;
+			padding-left: 130px;
+
+			h1 {
+				line-height: 48px;
+				span {
+					display: inline-block;
+				}
+			}
+
+			.slide-button {
+				margin-top: 70px;
+			}
+		}	
+	}
+
+	&.slider-type-4 {
+		.slide-content {
+			max-width: 100%;
+			top: 70%;
+			padding-left: 20px;
+
+			h1 {
+				line-height: 48px;
+				span {
+					display: inline-block;
+				}
+			}
+
+			.slide-button {
+				margin-top: 50px;
+			}
+		}
+
+		&:hover {
+			.swiper-arrow {
+				&.next {
+					right: 10px;
+				}
+
+				&.prev {
+					left: 10px;
+				}
+			}
+		}
+	}
+
 	&.white-scheme {
 		.slide-content {
 			.promo-title,

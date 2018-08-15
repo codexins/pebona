@@ -41,7 +41,8 @@
 
 			    a {
 			    	&.active {
-			    		@include cx-color(primary, color);
+			    		// @include cx-color(primary, color);
+			    		@extend %color-primary;
 			    	}
 
 			    	i {
@@ -60,7 +61,8 @@
 
 	.toolbar-amount {
 	    font-size: 14px;
-	    @include cx-default-color(color, black);
+	    // @include cx-default-color(color, black);
+	    @extend %color-black;
 	}
 
 	.product-select-box {
@@ -179,7 +181,8 @@
 			    border: 1px solid rgba(0,0,0,0);
 			    @extend %rounded-corners;
 				&:hover {
-					@include cx-color(primary, border);
+					// @include cx-color(primary, border);
+					@extend %border-primary;
 					.action-links {
 				    	transform: translateY(0);
 				    	opacity: 1;

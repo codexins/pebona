@@ -192,7 +192,7 @@ INDEX:
 
         // Fixed Navigation Menu Height
         var headerHeight = $intelHeader[0].getBoundingClientRect().height;
-        var topBarHeight = $('header .top-bar')[0].getBoundingClientRect().height;
+        var topBarHeight = ( $('header .top-bar').elExists() ) ? $('header .top-bar')[0].getBoundingClientRect().height : 0;
         var headerMainHeight = $('header .header-area')[0].getBoundingClientRect().height;
         var headerTotalHeight = topBarHeight + headerMainHeight;
 
@@ -213,16 +213,18 @@ INDEX:
             }
         });
 
-        // For header float over Primary Slider
+        // For header to float over Main Content
         if ($headerfl.elExists()) {
             var navHeight = $headerfl[0].getBoundingClientRect().height;
-            $pSlider.css("margin-top", -navHeight);
+            $("#content").css("margin-top", -navHeight);
         }
 
         // Slider content dynamic height
         if ($pSlider.elExists()) {
+            var topBannersheight = ($('.top-promo-banners').elExists()) ? $('.top-promo-banners')[0].getBoundingClientRect().height : 0;
             var sliderHeight = $pSlider[0].getBoundingClientRect().height;
-            $("#primary_slider .slide-content").parent(this).css("height", sliderHeight);
+            var mainHeight = (sliderHeight === 0) ? topBannersheight : sliderHeight;
+            $("#primary_slider .slide-content").parent(this).css("height", mainHeight);
         }
 
         // Equal height columns in slider section
@@ -772,6 +774,33 @@ INDEX:
         ORORUS.toolTips(),
         ORORUS.rangeSlider(),
         ORORUS.instagramSettings();
+
+
+
+
+$(".cart-input").append('<div class="dec qtybutton"><i class="fa fa-angle-down"></i></div><div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>');
+$(".qtybutton").on("click", function() {
+    var $button = $(this);
+    var oldValue = $button.parent().find("input").val();
+    if ($button.hasClass('inc')) {
+      var newVal = parseFloat(oldValue) + 1;
+    } else {
+       // Don't allow decrementing below zero
+      if (oldValue > 0) {
+        var newVal = parseFloat(oldValue) - 1;
+        } else {
+        newVal = 0;
+      }
+      }
+    $button.parent().find("input").val(newVal);
+  }); 
+
+
+
+
+
+
+
     });
 
     // Window load and resize functions

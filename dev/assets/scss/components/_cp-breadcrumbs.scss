@@ -4,27 +4,29 @@
  */
 
 .breadcrumb {
-	padding: 25px 0 20px;
+	padding: 50px 0;
     background: none;
     border-radius: 0;
-    text-align: left;
-    border-bottom: 1px solid $cx-border-color;
-    @extend %mb-full;
+	border-bottom: 1px solid #f1f1f2;
+    border-top: 1px solid #f1f1f2;
+    justify-content: center;
+    @extend %mb0;
 
     .breadcrumb-item {
     	font-size: 14px;
-    	@include cx-default-color(color, black);
+    	// @include cx-default-color(color, black);
+    	@extend %color-black;
     	@extend .pos-r;
 
 		&:hover,
 		&:focus {
-			@include cx-color(primary, color);
+			// @include cx-color(primary, color);
+			@extend %color-primary;
 		}
     	
     	+ .breadcrumb-item {
     		padding-left: 30px;
 	    	&::before {
-			    position: absolute;
 			    color: #222;
 			    content: "\e684";
 			    font-family: 'Pe-icon-7-stroke';
@@ -35,11 +37,13 @@
 			    text-align: center;
 			    left: 0;
 			    top: -2px;
+			    @extend .pos-a;
 	    	}
 	    }
 
 	    &.active {
-	    	@include cx-color(primary, color);
+	    	// @include cx-color(primary, color);
+	    	@extend %color-primary;
 	    }
     }
 }

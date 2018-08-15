@@ -55,37 +55,58 @@
 		}
 	}
 
+	.top-banner & {
+		margin-bottom: 20px;
+	}
+
 	&.hover-effect-2 {
 		> a {
+			&::before,
+			&::after {
+			    content: '';
+			    position: absolute;
+			    left: 19.5px;
+			    right: 19.5px;
+			    top: 19.5px;
+			    bottom: 19.5px;
+			    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+			    transition: opacity 0.35s, -webkit-transform 0.35s;
+			    transition: opacity 0.35s, transform 0.35s;
+			    transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+			    z-index: 7;
+			}
+
 			&::before {
-			    content: "";
-			    top: 0;
-			    left: 0;
-			    right: 0;
-			    bottom: 0;
-			    margin: 0 auto;
-				@extend %cx-transition;
-				@extend .pos-a;
+			    border-top: 1.5px solid lighten($cx-text-color, 100%);
+			    border-bottom: 1.5px solid lighten($cx-text-color, 100%);
+			    transform: scale(0, 1);
+			}
+
+			&::after {
+			    border-right: 1.5px solid lighten($cx-text-color, 100%);
+			    border-left: 1.5px solid lighten($cx-text-color, 100%);
+			    transform: scale(1, 0);
 			}
 		}
 
 		&:hover {
 			> a {
-				&::before {
-					box-shadow: 0 0 0 15px rgba(#fff,0.2) inset;
+				&::before,
+				&::after {
+				    transform: scale(1, 1);
 				}
 			}
 		}
 	}
 
-	.top-promo-banners & {
-		> a {
-			display: block;
-		}
-		img {
-			width: 100%;
-		}
-	}
+	// .top-promo-banners & {
+	// 	> a {
+	// 		display: block;
+	// 	}
+	// 	img {
+	// 		width: 100%;
+	// 	}
+	// }
 
 	// &.mb-sm-half {
 	// 	@include respond-to(mobile) {

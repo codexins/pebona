@@ -1,0 +1,72 @@
+/**
+ * Layout Boxed Layout
+ *
+ */
+
+.boxed-layout {
+	header {
+		@extend %pb-half;
+	}
+
+	.main-content-wrapper {
+	    width: 1220px;
+	    left: 0;
+	    right: 0;
+	    margin: 0 auto;
+	    position: relative;
+	    overflow: initial;
+	    @extend %bgc-white;
+	    @extend %pb-half;
+
+	    &::before {
+			content: "";
+		    top: -40px;
+		    left: 0;
+		    right: 0;
+		    width: 100%;
+		    @extend .pos-a;
+		    @extend %pt-half;
+		    @extend %bgc-white;
+	    }
+	}
+
+	#main_nav {
+		.mega-container,
+		> ul > li > ul {
+			border-color: transparent;
+		}
+	}
+
+	.container {
+		width: auto;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.product-row {
+		&.row {
+			margin-left: -55px;
+			margin-right: -55px;
+
+			> .col-12 {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		.swiper-arrow {
+			&.next {
+				right: -30px;
+			}
+
+			&.prev {
+				left: -30px;
+			}
+		}
+	}
+
+	footer {
+		margin-top: -$cx-col-spacing;
+		padding-top: 1.5 * $cx-section-spacing;
+	}
+}

@@ -490,17 +490,21 @@
                                                         </ul>
                                                     </div>
                                                     <div class="product-stock">
-                                                       <label>Quantity</label>
-                                                        <ul class="d-flex flex-wrap align-items-center">
-                                                            <li class="box-quantity">
-                                                                <form action="#">
-                                                                    <input class="quantity" type="number" min="1" value="1">
-                                                                </form>
-                                                            </li>
-                                                            <li>
-                                                                <button type="button" class="default-btn">Add to Cart</button>
-                                                            </li>
-                                                        </ul>
+                                                        <form action="#">
+                                                            <label>Quantity</label>
+                                                            <ul class="d-flex flex-wrap align-items-center">
+                                                                <li class="box-quantity">
+                                                                    <div class="cart-input">
+                                                                        <input class="cart-input-box" type="text" value="0">
+                                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <button type="button" class="default-btn">Add to Cart</button>
+                                                                </li>
+                                                            </ul>
+                                                        </form>
                                                     </div>
                                                     <div class="wishlist-compare">
                                                         <button class="btn-wishlist" type="button" title="Add to Wishlist">Add to Wishlist</button>
