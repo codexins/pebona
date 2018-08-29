@@ -14,6 +14,13 @@
 
 		tr {
 			@extend %cx-transition;
+
+			td {
+				a {
+					font-size: 14px;
+					font-weight: 500;
+				}
+			}
 		}
 
 		th,
@@ -23,10 +30,14 @@
 		}
 
 		.price {
-		    color: #ec0a0a;
 		    font-size: 18px;
 		    margin: 0;
 		    font-weight: 400;
+
+		    strong {
+		    	font-weight: 500;
+		    	@extend %color-primary;
+		    }
 		}
 
 		.btn-primary,
@@ -52,13 +63,17 @@
 		.btn-danger {
 		    background-color: #f4f4f4;
 		    border-color: #f4f4f4;
-		    @include cx-default-color(color, dark);
+		    // @include cx-default-color(color, dark);
+		    @extend %color-dark;
 
 		    &:hover,
 		    &:focus {
-			    @include cx-color(primary, bg);
-			    @include cx-color(primary, border);
-			    @include cx-default-color(color, white);
+			    // @include cx-color(primary, bg);
+			    // @include cx-color(primary, border);
+			    // @include cx-default-color(color, white);
+			    @extend %bgc-primary;
+			    @extend %border-primary;
+			    @extend %color-white;
 		    }
 		}
 
@@ -82,6 +97,19 @@
 			td {
 			    padding: 20px 15px;
 			}
+
+			strong {
+				font-weight: 500;
+			}
+
+			del {
+				+ span {
+					font-size: 18px;
+					bottom: -1px;
+					@extend %color-primary;
+					@extend .pos-r;
+				}
+			}
 		}
 
 		.product-title {
@@ -90,18 +118,15 @@
 		    width: 120px;
 		}
 
-		.product-ratings {
-			li {
-				color: #4d4d4d
-			}
-		}
-
 		.btn-secondary {
 		    width: 125px;
+		    text-transform: capitalize;
+		    padding: 0;
 
 		    &:first-child {
 		    	background-color: #337ab7;
-		    	@include cx-default-color(color, white);
+		    	// @include cx-default-color(color, white);
+		    	@extend %color-white;
 
 		    	&:hover,
 		    	&:focus {

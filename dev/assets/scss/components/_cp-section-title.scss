@@ -10,12 +10,12 @@
 	h2 {
 	    font-size: 30px;
 	    line-height: 30px;
-	    margin-bottom: 20px;
 	    padding-bottom: 20px;
 	    display: inline-block;
 	    letter-spacing: -.05em;
 	    text-transform: capitalize;
 	    @extend .pos-r;
+	    @extend %mb0;
 
 	    &::before {
 		    content: "";
@@ -41,6 +41,7 @@
 	}
 
     .subtitle {
+    	margin-top: 20px;
     	font-size: 14px;
     	@extend %color-secondary;
     	@extend %mb0;
@@ -48,12 +49,22 @@
 
     &.type-2 {
     	h2 {
-    		padding-bottom: 25px;
+			@extend %pb0;
     		@extend %mb0;
 	    	&::before {
 	    		content: none;
 	    	}
 	    }
+    }
+
+    &.left-aligned {
+    	text-align: left;
+
+    	h2 {
+    		&::before {
+    			margin-left: 0;
+    		}
+    	}
     }
 
 	// .subtitle {

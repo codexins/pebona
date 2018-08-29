@@ -7,24 +7,29 @@ jQuery(window).on('load', function($){
     "use strict";
 
     var map;
+    var mapLocation = {
+        lat: 38.435828, 
+        lng: -122.728091
+    };
+    var image = 'assets/images/map-marker.png';
+
     map = new GMaps({
         el: '#gmap',
-        lat: 38.435828,
-        lng: -122.728091,
-        scrollwheel:false,
+        center: mapLocation,
+        scrollwheel: false,
         zoom: 14,
         zoomControl : true,
         panControl : false,
         streetViewControl : false,
         mapTypeControl: true,
+        fullscreenControl: false,
         overviewMapControl: false,
-        clickable: false
+        clickable: false,
+        disableDefaultUI: true
     });
 
-    var image = 'assets/images/map-marker.png';
     map.addMarker({
-        lat: 38.435828,
-        lng: -122.728091,
+        position: mapLocation,
         icon: image,
         animation: google.maps.Animation.BOUNCE,
         verticalAlign: 'bottom',
@@ -33,7 +38,36 @@ jQuery(window).on('load', function($){
     });
 
 
-    var styles = [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}];
+    var styles = [
+        {
+            "stylers": [
+                {
+                    "hue": "#dd0d0d"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "lightness": 100
+                },
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        }
+    ];
 
     map.addStyle({
         styledMapName:"Styled Map",

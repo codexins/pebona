@@ -239,7 +239,11 @@ input[type="button"]:hover {
         width: 100%;
 
         .selected {
-            font-weight: 600;
+            font-weight: 500;
+        }
+
+        .option {
+            @extend %color-black;
         }
     }
 

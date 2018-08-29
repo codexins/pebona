@@ -199,18 +199,18 @@ INDEX:
         // Sticky header
         $window.on('scroll', function() {
             var height = $window.scrollTop();
-            if ($window.width() > 991) {
-                if (height < headerTotalHeight) {
-                    $(".fixed-header-space").height(0);
-                    $intelHeader.removeClass("sticky");
-                } else if (height > headerHeight + headerTotalHeight) {
-                    $(".fixed-header-space").height(headerHeight);
-                    $intelHeader.addClass("sticky");
-                }
-            } else {
+            // if ($window.width() > 991) {
+            if (height < headerTotalHeight) {
                 $(".fixed-header-space").height(0);
                 $intelHeader.removeClass("sticky");
+            } else if (height > headerHeight + headerTotalHeight) {
+                $(".fixed-header-space").height(headerHeight);
+                $intelHeader.addClass("sticky");
             }
+            // } else {
+            //     $(".fixed-header-space").height(0);
+            //     $intelHeader.removeClass("sticky");
+            // }
         });
 
         // For header to float over Main Content
@@ -375,6 +375,8 @@ INDEX:
             var mainSliderSelector = '.main-slider',
                 navSliderSelector = '.nav-slider';
 
+            // var centerSlide = $(this).attr("data-center-slide") === 'true' ? 1 : 0;
+
             // Main Slider
             var mainSliderOptions = {
                 effect: 'fade',
@@ -415,6 +417,9 @@ INDEX:
 
                 // Responsive breakpoints
                 breakpoints: {
+                    575: {
+                        direction: 'horizontal',
+                    },
                     479: {
                         autoplay: {
                             delay: 5000

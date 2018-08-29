@@ -6,12 +6,25 @@
 .shopping-cart-wrapper {
 	.table {
 		text-align: center;
+		@extend %mb0;
+
+		thead {
+			td {
+				font-weight: 500;
+			}
+		}
+
 		td,
 		th {
 			border-width: 1px;
 		}
 		td {
 			vertical-align: middle;
+
+			a {
+				font-size: 14px;
+				font-weight: 500;
+			}
 		}
 
 		img {
@@ -21,6 +34,10 @@
 		span {
 			display: block;
 			font-size: 12px;
+		}
+
+		.cart-input {
+			margin-right: 10px;
 		}
 
 		.btn-primary {
@@ -54,7 +71,8 @@
 			@extend %pb0;
 
 			&:first-child {
-				border-radius: 0;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
 				margin-right: -2px;
 			}
 		}
@@ -86,6 +104,14 @@
 		}
 	}
 
+	.default-btn {
+		@extend %slight-rounded;
+	}
+
+	strong {
+		font-weight: 500;
+	}
+
 	input,
 	.nice-select {
 		height: 40px;
@@ -93,6 +119,7 @@
 	}
 
 	.input-group {
+		justify-content: center;
 		align-items: center;
 	}
 

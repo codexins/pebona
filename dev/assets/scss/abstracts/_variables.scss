@@ -79,7 +79,7 @@ $cx-section-spacing-mob:		$shrink-factor * $cx-section-spacing !default; // shri
 
 //-------------------- Default Transition --------------------//
 
-$cx-transition: 				 all 0.3s ease-in-out !default;
+$cx-transition: 				 all 0.7s cubic-bezier(0.2, 1, 0.22, 1) !default;
 
 
 //-------------------- Default Breakpoint / Screen Size --------------------//

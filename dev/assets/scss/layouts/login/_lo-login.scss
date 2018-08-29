@@ -20,11 +20,13 @@
         }
 
         a {
-        	@include cx-default-color(color, black);
+        	// @include cx-default-color(color, black);
+        	@extend %color-black;
 
         	&:hover,
         	&:focus {
-				@include cx-color(primary, color);
+				// @include cx-color(primary, color);
+				@extend %color-primary;
         	}
         }
 	}
@@ -50,5 +52,9 @@
 				}
 			}
 		}
+	}
+
+	.default-btn {
+		@extend %slight-rounded;
 	}
 }

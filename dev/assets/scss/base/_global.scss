@@ -41,6 +41,10 @@ section {
 	}
 }
 
+#secondary {
+	@extend %overflow-hidden;
+}
+
 .pswp {
 	z-index: 9999;
 }

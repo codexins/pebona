@@ -52,7 +52,7 @@
 
             &.active {
                 .active {
-                    > a {
+                    > a:not(.mega-menu-title) {
                         // @include cx-color(primary, color);
                         @extend %color-primary;
                         &:hover {

@@ -24,6 +24,7 @@
     &:focus {
      //    @include cx-default-color(color, white);
 	    // @include cx-default-color(bgc, dark);
+        box-shadow: none;
         @extend %bgc-primary;
         @extend %color-white;
     }
@@ -54,6 +55,7 @@
         font-size: 13px;
         line-height: 2;
         letter-spacing: 0.05em;
+        min-width: auto;
     }
 
     @include respond-to(mobile) {
@@ -142,6 +144,16 @@
             // @include cx-default-color(color, white);
             @extend %bgc-primary;
             @extend %color-white;
+        }
+
+        &.dark {
+            @extend %bgc-dark;
+            @extend %color-white;
+
+            &:hover,
+            &:focus {
+                @extend %bgc-primary;
+            }
         }
     }
 }

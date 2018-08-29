@@ -54,8 +54,11 @@
     letter-spacing: -.05em;
     text-transform: capitalize;
 	@extend .pos-r;
-	@extend %color-white;
 	@extend %mb-half;
+
+	#colophon & {
+		@extend %color-white;
+	}
 
     // &::before {
 	   //  content: '';
@@ -70,16 +73,18 @@
 }
 
 .sidebar-widget {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid $cx-border-color;
 
 	.widgettitle {
-		font-size: 20px;
-	    padding: 0 0 20px;
-	    margin-bottom: 30px;
+	    margin-bottom: 20px;
 	}
 
 	&:last-child {
+		border-bottom: 0;
 		@extend %mb0;
+		@extend %pb0;
 	}
 }
 
@@ -391,6 +396,8 @@
 
 /* Tags Widget */
 .tags-widget {
+	margin-bottom: -10px;
+	
 	ul {
 		list-style: none;
 		margin: 0;
@@ -400,11 +407,11 @@
 			display: inline-block;
 
 			a {
-			    padding: 5px 15px;
-			    border: 1px solid #dbdbdb;
+			    padding: 5px 20px;
+			    border: 1px solid $cx-border-color;
 			    display: block;
 			    margin: 0 10px 10px 0;
-			    font-size: 14px;
+			    font-size: 13px;
 			    text-transform: capitalize;
 			    // @include cx-default-color(color, black);
 			    @extend %color-black;
@@ -421,75 +428,88 @@
 			}
 		}
 	}
-
-// 	.color-scheme-two & {
-// 		a {
-// 			&:hover {
-// 				@include cx-default-color(color, dark);
-// 			}
-// 		}
-// 	}
 }
 
-/* Price Slider Widget */
-// .filter-price-content {
-//     padding-right: 7px;
+/* Categories Accordion Widget */
+.list-categories-widget {
+	.cat-accordion {
+		margin-top: -7px;
+	    margin-bottom: -7px;
+	}
 
-// 	#price_slider {
-// 	    margin: 10px 0px 0px;
-// 	    border-radius: 0;
-// 	    background: #29323b;
-// 	    border: none !important;
-// 	    height: 4px;
-// 	    @extend .pos-r;
+	.card,
+	.card-header,
+	button {
+		border: 0;
+	}
 
-// 	    .ui-slider-range {
-// 		    position: absolute;
-// 		    z-index: 1;
-// 		    font-size: .7em;
-// 		    display: block;
-// 		    border: 0;
-// 		    top: 0;
-// 		    height: 100%;
-// 		    @include cx-color(primary, bg);
-// 	    }
+	.card-header {
+		padding: 0;
+		@extend %bgc-transparent;
+	}
 
-// 	    .ui-slider-handle {
-// 		    width: 14px;
-// 		    height: 14px;
-// 		    top: -5px;
-// 		    position: absolute;
-// 		    border: 0;
-// 		    cursor: pointer;
-// 		    @extend .circle;
-// 		    @include cx-color(primary, bg);
-// 	    }
-// 	}
+	button {
+	    padding: 0;
+	    font-size: 14px;
+	    line-height: 36px;
+	    height: auto;
+	    text-transform: capitalize;
+	    text-decoration: none;
+	    font-weight: 400;
+	    display: block;
+	    width: 100%;
+	    text-align: left;
+	    padding-right: 20px;
+	    @extend %bgc-transparent;
+	    @extend .pos-r;
+	    @extend %color-black;
 
-//     .filter-price-wrapper {
-// 		padding: 5px 0;
-// 	    text-align: center;
-// 	    font-size: 14px;
-// 	    margin-top: 10px;
-// 	    color: #363f4d;
-// 	    font-weight: 400;
+	    &::after {
+			content: "\f273";
+		    font-family: Ionicons;
+		    right: 0;
+		    top: 50%;
+		    margin-top: -18px;
+		    font-weight: bold;
+		    font-size: 13px;
+			@extend .pos-a;
+			transition: transform 0.3s;
+	    }
 
-// 	    .filter-content {
-// 		    display: flex;
-// 		    font-weight: 600;
-// 		    justify-content: center;
+	    &[aria-expanded="true"],
+	    &:hover {
+	    	@extend %color-primary;
+	    }
 
-// 	    	input {
-// 			    width: 100px;
-// 			    border: none;
-// 			    background: none;
-// 			    text-align: center;
-// 			    font-size: 14px;
-// 			    height: auto;
-// 	    	}
-// 	    }
-//     }
-// }
+	    &[aria-expanded="true"] {
+	    	&::after {
+				transform: rotate(135deg);
+	    	}
+	    }
+	}
+
+	.card-body {
+		padding: 0;
+	}
+
+	.cat-sub-menu {
+	    margin: 0;
+	    list-style: none;
+	    padding-left: 10px;
+
+	    a {
+		    display: block;
+		    font-size: 14px;
+		    line-height: 30px;
+		    text-transform: capitalize;
+		    @extend %color-black;
+
+		    &:hover {
+		    	@extend %color-primary;
+		    }
+	    }
+	}
+}
 
 /* List Widget */
 .list-widget {
@@ -498,7 +518,7 @@
 		    text-transform: capitalize;
 		    font-size: 14px;
 		    font-weight: 400;
-		    padding-bottom: 13px;
+		    // padding-bottom: 13px;
 		    display: block;
 		    margin: 5px 0;
 		    // @include cx-default-color(color, black);
@@ -591,6 +611,72 @@
 				padding-bottom: 0;
 				@extend %mb0;
 			}
+		}
+	}
+}
+
+/* Color Widget */
+.color-widget {
+	.color-options {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+		    text-transform: capitalize;
+		    font-size: 14px;
+		    font-weight: 400;
+		    display: flex;
+		    align-items: center;
+		    margin: 9px 0;
+
+		    a {
+				@extend %color-black;
+		    }
+
+		    span {
+		    	// border: 1px solid #dfdfdf;
+			    box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
+			    display: block;
+			    width: 17px;
+			    height: 17px;
+			    margin-right: 10px;
+
+			    &.white {
+			    	@extend %bgc-white;
+			    }
+
+			    &.orange {
+			    	background: #f39c11;
+			    }
+
+			    &.blue {
+			    	background: #5d9cec;
+			    }
+
+			    &.yellow {
+			    	background: #f1c40f;
+			    }
+
+			    &.black {
+			    	background: #434A54;
+			    }
+		    }
+
+		    &:first-child {
+		    	margin-top: 0;
+		    }
+
+		    &:last-child {
+		    	margin-bottom: 0;
+		    	padding-bottom: 0;
+		    }
+
+		    &:hover {
+		    	a {
+		    		@extend %color-primary;
+		    	}
+		    }
 		}
 	}
 }
