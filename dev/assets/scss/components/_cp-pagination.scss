@@ -26,16 +26,12 @@
 			    padding: 0;
 			    margin: 0 7px;
 			    text-align: center;
-			    // @include cx-default-color(color, black);
 			    @extend %color-black;
 			    @extend %bgc-transparent;
 
 			    &:hover,
 			    &:focus {
 			    	box-shadow: none;
-	    			// @include cx-color(primary, bg);
-	    			// @include cx-color(primary, border);
-	    			// @include cx-default-color(color, white);
 	    			@extend %color-primary;
 			    }
 
@@ -43,7 +39,6 @@
 			    	width: 26px;
 			    	height: 26px;
 			    	line-height: 27px;
-			    	// font-size: 12px;
 			    	margin-right: 2px;
 			    }
     		}
@@ -52,13 +47,26 @@
 					font-size: 20px;
 					cursor: default;
 					line-height: 14px;
-	    			// @include cx-color(primary, bg);
-	    			// @include cx-color(primary, border);
-	    			// @include cx-default-color(color, white);
 	    			@extend %color-primary;
 	    			@extend %bgc-transparent;
+
+                    @include media-only(small-mobile, max) {
+                        line-height: 1.3;
+                    }
 				}
     		}
+
+            &.page-item:not(.active) {
+                @include media-only(small-mobile, max) {
+                    a {
+                        width: auto;
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
 
     		&:first-child,
     		&:last-child {
@@ -85,6 +93,12 @@
     				margin-left: 5px;
     			}
     		}
+
+            @include media-only(small-mobile, max) {
+                i {
+                    font-size: 18px;
+                }
+            }
     	}
     }
 

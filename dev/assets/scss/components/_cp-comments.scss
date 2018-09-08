@@ -20,7 +20,7 @@
 			text-transform: capitalize;
 
 			+ span {
-			    @include cx-default-color(color, dark);
+			    @extend %color-dark;
 			}
 		}
 	}
@@ -28,14 +28,14 @@
 	.comment-reply {
 		a {
 		    font-size: 12px;
-		    font-weight: 600;
+		    font-weight: 500;
 		    text-transform: capitalize;
 		}
 	}
 
 	.comment-content {
 		padding: 20px;
-		@include cx-default-color(bgc, offset);
+		@extend %bgc-offset;
 		> p {
 			margin-top: 10px;
 		}

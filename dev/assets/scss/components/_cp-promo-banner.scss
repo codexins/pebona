@@ -27,22 +27,11 @@
 			    left: 19.5px;
 			    border: 1.5px solid lighten($cx-text-color, 100%);
 			    opacity: 0;
+			    z-index: 1;
 			    transition: opacity 0.35s,transform 0.35s;
 			    transform: translate3d(-10px,0,0);
 			    @extend .pos-a;
 			}
-
-			// &::before {
-			//     border-top: 1px solid lighten($cx-text-color, 100%);
-			//     border-bottom: 1px solid lighten($cx-text-color, 100%);
-			//     transform: scale(0, 1);
-			// }
-
-			// &::after {
-			//     border-right: 1px solid lighten($cx-text-color, 100%);
-			//     border-left: 1px solid lighten($cx-text-color, 100%);
-			//     transform: scale(1, 0);
-			// }
 		}
 
 		&:hover {
@@ -57,6 +46,16 @@
 
 	.top-banner & {
 		margin-bottom: 20px;
+	}
+
+	&.last {
+		@include media-only(notebook, max) {
+			margin-top: 20px;
+		}
+
+		@include respond-to(mobile) {
+			margin-top: 0;
+		}
 	}
 
 	&.hover-effect-2 {
@@ -98,105 +97,16 @@
 			}
 		}
 	}
-
-	// .top-promo-banners & {
-	// 	> a {
-	// 		display: block;
-	// 	}
-	// 	img {
-	// 		width: 100%;
-	// 	}
-	// }
-
-	// &.mb-sm-half {
-	// 	@include respond-to(mobile) {
-	// 		margin-bottom: 30px;
-	// 	}
-	// }
 }
-
-// .banner-with-text {
-// 	height: 360px;
-// 	@extend .pos-r;
-
-// 	@include media-only(wide, max) {
-// 		height: 400px;
-// 	}
-
-// 	.banner-content {
-// 	    position: absolute;
-// 	    left: 60px;
-// 	    top: 80px;
-// 	    width: 50%;
-// 	    text-align: center;
-
-// 	    @include respond-to(mobile) {
-// 	    	width: 60%;
-// 	    	left: 40px;
-// 	    }
-
-// 	    h3 {
-// 		    font-size: 24px;
-// 		    margin: 0;
-// 		    text-transform: uppercase;
-// 		    @include cx-default-color(color, white);
-// 	    }
-
-// 	    h2 {
-// 			font-size: 32px;
-// 		    text-transform: capitalize;
-// 		    font-weight: 500;
-// 		    line-height: 1.2;
-// 		    margin: 20px 0 0;
-// 		    @include cx-color(secondary, color);
-
-// 		    @include respond-to(mobile) {
-// 				font-size: 24px;
-// 		    }
-// 	    }
-
-// 	    .default-btn {
-// 	    	font-size: 14px;
-// 	    	text-transform: capitalize;
-// 	    	padding: 0 20px;
-// 	    	margin-top: 35px;
-// 	    	@include cx-color(secondary, color);
-// 	    	@include cx-color(secondary, border);
-
-// 	    	&:hover,
-// 	    	&:focus {
-// 		    	@include cx-color(secondary, bg);
-// 		    	@include cx-default-color(color, white);
-// 	    	}
-// 	    }
-// 	}
-// }
-
-// .top-promo-banners {
-// 	@include media-only(small-mobile, max) {
-// 		.col-6 {
-// 			flex-basis: 100%;
-// 			max-width: 100%;
-
-// 			&:first-child {
-// 				.promo-banner {
-// 					margin-bottom: 0.75 * $cx-col-spacing;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	.first {
-// 		@include media-only(notebook, max) {
-// 			margin-bottom: 0;
-// 		}
-// 	}
-// }
 
 .banner-with-text,
 .image-placeholder {
 	.promo-banner-section & {
 		height: 590px;
+
+	    @include respond-to(mobile) {
+	    	height: auto;
+	    }
 	}
 }
 
@@ -207,26 +117,53 @@
 	    text-align: center;
 	    transform: translateY(-50%);
 	    @extend .pos-a;
+
+	    @include respond-to(tablet) {
+	    	text-align: left;
+	    }
+
+	    @include respond-to(mobile) {
+			position: static;
+			width: 100%;
+			transform: none;
+			padding: $cx-section-spacing-mob 0;
+	    }
 	}
 
 	h1 {
 	    font-size: 48px;
 	    margin-bottom: 20px;
-	    font-weight: 300;
 	    text-transform: capitalize;
 	    @extend %color-primary;
+
+	    @include respond-to(tablet) {
+	    	font-size: 40px;
+	    }
+
+	    @include respond-to(mobile) {
+	    	font-size: 30px;
+	    }
 	}
 
 	h2 {
 	    font-size: 36px;
-	    margin-bottom: 45px;
 	    letter-spacing: -.025em;
 	    font-weight: 500;
 	    text-transform: capitalize;
+	    line-height: 1.2;
+	    @extend %mb-half;
 	    @extend %color-secondary;
 
 	    span {
 	    	@extend %color-primary;
+	    }
+
+	    @include respond-to(tablet) {
+	    	font-size: 30px;
+	    }
+
+	    @include respond-to(mobile) {
+	    	font-size: 24px;
 	    }
 	}
 
@@ -235,9 +172,30 @@
 	    line-height: 30px;
 	    margin-bottom: 0;
 	    @extend %color-secondary;
+
+	    @include respond-to(mobile) {
+	    	line-height: 26px;
+	    }
 	}
 
 	.default-btn {
-		margin-top: 50px;
+		@extend %mt-half;
+
+		@include media-only(notebook, max) {
+		    min-width: 180px;
+		    height: 40px;
+		    line-height: 40px;
+		}
+	}
+}
+
+@include media-only(small-mobile, max) {
+	.banner-section {
+		.row {
+			> .col-6 {
+				max-width: 100%;
+				flex-basis: 100%;
+			}
+		}
 	}
 }

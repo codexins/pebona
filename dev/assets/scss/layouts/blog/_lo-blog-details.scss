@@ -11,7 +11,6 @@
 		@extend .pos-r;
 
 		.image-overlay {
-			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
@@ -19,15 +18,16 @@
 			opacity: 0;
 			background: rgba(0, 0, 0, 0.35);
 			@extend %cx-transition;
+			@extend .pos-a;
 		}
 
 		i {
 			font-size: 50px;
-			position: absolute;
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
-			@include cx-default-color(color, white);
+			@extend .pos-a;
+			@extend %color-white;
 		}
 
 		figure {
@@ -38,6 +38,12 @@
 			.image-overlay {
 				opacity: 1;
 			}
+		}
+	}
+
+	.post-details {
+		img {
+			width: 100%;
 		}
 	}
 
@@ -64,10 +70,10 @@
 		}
 
 		a {
-			@include cx-color(primary, color);
+			@extend %color-primary;
 
 			&:hover {
-				@include cx-default-color(color, dark);
+				@extend %color-dark;
 			}
 		}
 	}
@@ -76,7 +82,7 @@
 	    border-bottom: 1px solid $cx-border-color;
 	    margin-top: 15px;
 	    padding-bottom: 15px;
-	    @include cx-default-color(color, black);
+	    @extend %color-black;
 	    @extend %mb-half;
 
 	    p {
@@ -94,8 +100,15 @@
 	    margin: 40px 0;
 	    padding: 30px;
 	    border-left: 3px solid;
-	    @include cx-color(primary, border);
-	    @include cx-default-color(bgc, offset);
+	    @extend %bgc-offset;
+
+	    #whole & {
+	    	@extend %border-primary;
+	    }
+
+	    .blockquote-footer {
+	    	@extend %color-dark;
+	    }
 
 	    @include respond-to(mobile) {
 	    	padding: 20px;
@@ -159,13 +172,13 @@
 		@extend %mt-half;
 		li {
 			a {
-			    color: #303030;
 			    font-size: 14px;
 			    font-weight: 500;
 			    line-height: 1;
+			    @extend %color-dark;
 
 			    &:hover {
-			    	@include cx-color(primary, color);
+			    	@extend %color-primary;
 			    }
 			}
 
@@ -182,7 +195,11 @@
 	.author-box {
 		padding: 30px;
 		margin-top: 40px;
-		@include cx-default-color(bgc, offset);
+		@extend %bgc-offset;
+
+		.author-description {
+			align-self: center;
+		}
 
 		h6 {
 		    font-size: 15px;

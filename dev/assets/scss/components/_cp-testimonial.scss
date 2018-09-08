@@ -21,7 +21,6 @@
 
 		&::before {
 		    content: '';
-		    position: absolute;
 		    background: url(../images/icons/icon-testimonials.png) no-repeat 0 0;
 		    left: 0;
 		    top: 16px;
@@ -29,13 +28,14 @@
 		    width: 34px;
 		    height: 24px;
 		    margin: 0 auto;
+		    @extend .pos-a;
 		}
 
 		p {
 			font-size: 13px;
 		    line-height: 23px;
 		    width: 100%;
-		    @include cx-default-color(color, black);
+		    @extend %color-black;
 		    &:last-of-type {
 		    	@extend %mb0;
 		    }
@@ -50,25 +50,6 @@
 		    color: #333333;
 		    text-transform: capitalize;
 		    @extend %mb0;
-		}
-	}
-}
-
-.testimonials {
-	&.with-right-padding {
-		padding-right: 30px;
-
-		@include respond-to(notebook) {
-			margin-bottom: 40px;
-		}
-
-		@include media-only(notebook, max) {
-			padding-right: 0;
-			margin-bottom: 1.2 * $cx-section-spacing;
-
-			.swiper-pagination-testimonial {
-				padding-right: 0;
-			}
 		}
 	}
 }

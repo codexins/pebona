@@ -15,7 +15,7 @@
 	.card-header {
 		padding: 0;
 		border-bottom: 0;
-		@include cx-default-color(bgc, offset);
+		@extend %bgc-offset;
 
 		button {
 			display: block;
@@ -43,13 +43,12 @@
 		    	border-color: transparent;
 				color: inherit;
 				border-top-color: rgba(0, 0, 0, 0.125);
-				@include cx-default-color(bgc, offset);
+				@extend %bgc-offset;
 		    }
 
 		    &::after {
 			    content: "\f107";
 			    font-family: FontAwesome;
-			    position: absolute;
 			    right: 15px;
 			    height: 20px;
 			    top: 50%;
@@ -57,16 +56,24 @@
 			    font-weight: bold;
 			    backface-visibility: hidden;
 			    transition: transform 0.3s;
+			    @extend .pos-a
 		    }
 
 		    &[aria-expanded="true"] {
 		    	text-decoration: none;
-		    	@include cx-color(primary, bg);
-		    	@include cx-color(primary, border);
-		    	@include cx-default-color(color, white);
+		    	@extend %bgc-primary;
+		    	@extend %border-primary;
+		    	@extend %color-white;
 
 		    	&::after {
 		    		transform: rotate(180deg);
+		    	}
+
+		    	&:hover,
+		    	&:focus {
+			    	@extend %bgc-primary;
+			    	@extend %border-primary;
+			    	@extend %color-white;
 		    	}
 		    }
 		}

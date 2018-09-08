@@ -17,8 +17,9 @@ header {
 					cursor: pointer;
 					text-decoration: none;
 					height: auto;
-					line-height: 0;
-					// @include cx-default-color(bgc, transparent);
+					line-height: 1;
+					top: -1px;
+					@extend .pos-r;
 					@extend %bgc-transparent;
 				}
 
@@ -27,6 +28,10 @@ header {
 					font-size: 12px;
 					backface-visibility: hidden;
 					transition: transform 0.3s;
+
+					@include respond-to(mobile) {
+						margin-left: 20px;
+					}
 				}
 
 				.dropdown-toggle {
@@ -71,8 +76,12 @@ header {
 	        border-radius: 0;
 	        min-width: 120px;
 	        @extend %overflow-hidden;
-	        // @include cx-default-color(bgc, transparent);
 	        @extend %bgc-transparent;
+
+	        @include media-only(small-mobile, max) {
+	        	left: 50%;
+	        	transform: translateX(-50%);
+	        }
 
 		    &.open {
 			    max-height: 200px;
@@ -87,7 +96,6 @@ header {
 			    box-shadow: none;
 			    min-width: 120px;
 			    list-style: none;
-			    // @include cx-default-color(bgc, white);
 			    @extend %bgc-white;
 
 				li {
@@ -117,15 +125,5 @@ header {
 				}
 		    }
 		}
-
-		// @include media-only(small-mobile, max) {
-		// 	> li {
-		// 		&.list-inline-item {
-		// 			&::after {
-		// 				content: none;
-		// 			}
-		// 		}
-		// 	}
-		// }
 	}
 }

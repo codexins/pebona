@@ -5,7 +5,7 @@
 
 .login-wrapper {
 	.login-form {
-	    padding: 50px 50px 30px;
+	    padding: 50px 50px 40px;
 	    border: 1px solid rgba(0,0,0,.125);
         box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
 
@@ -16,16 +16,14 @@
         }
 
         @include media-only(small-mobile, max) {
-        	padding: 20px;
+        	padding: 30px;
         }
 
         a {
-        	// @include cx-default-color(color, black);
         	@extend %color-black;
 
         	&:hover,
         	&:focus {
-				// @include cx-color(primary, color);
 				@extend %color-primary;
         	}
         }
@@ -38,6 +36,10 @@
 
 	.registration-form {
 		padding-bottom: 50px;
+
+		@include media-only(small-mobile, max) {
+			padding-bottom: 30px;
+		}
 	}
 
 	.login-info {

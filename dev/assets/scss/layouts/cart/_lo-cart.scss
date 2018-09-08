@@ -38,6 +38,20 @@
 
 		.cart-input {
 			margin-right: 10px;
+
+			@include respond-to(tablet) {
+				margin-right: 5px;
+				width: 64px;
+
+				.cart-input-box {
+					width: 40px;
+				}
+
+				.dec.qtybutton, 
+				.inc.qtybutton {
+					width: 24px;
+				}
+			}
 		}
 
 		.btn-primary {
@@ -127,7 +141,7 @@
 		@extend %mb0;
 
 		@include respond-to(mobile) {
-			margin-bottom: 5px;
+			margin-bottom: 8px;
 		}
 	}
 

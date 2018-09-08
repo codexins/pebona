@@ -4,19 +4,26 @@
  */
 
 .blog-grid {
-	padding: 20px;
-	border: 1px solid $cx-border-color;
 	@extend %mb-half;
 	@extend %slight-rounded;
 
-	@include media-only(small-mobile, max) {
-		padding: 15px;
-	}
-
 	.post-media {
-		margin-bottom: 20px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 		@extend %slight-rounded;
 		@extend %overflow-hidden;
+		@extend .pos-r;
+
+		&::before {
+			content: "";
+			left: 0;
+			height: 4px;
+			width: 0;
+			z-index: 9;
+			@extend %bgc-primary;
+			@extend .pos-a;
+			@extend %cx-transition;
+		}
 
 		img {
 			width: 100%;
@@ -36,8 +43,10 @@
 	}
 
 	.post-category {
+		margin-bottom: -7px;
 		li {
 			margin-right: 7px;
+			margin-bottom: 7px;
 
 			&:last-child {
 				margin-right: 0;
@@ -49,13 +58,10 @@
 			    padding: 7px 13px 6px;
 			    text-transform: capitalize;
 			    @extend %slight-rounded;
-			    // @include cx-color(primary, bg);
-			    // @include cx-default-color(color, white);
 			    @extend %bgc-primary;
 			    @extend %color-white;
 
 			    &:hover {
-			    	// @include cx-default-color(bgc, dark);
 			    	@extend %bgc-dark;
 			    }
 			}
@@ -71,6 +77,14 @@
 	}
 
 	.post-content {
+		padding: 20px;
+		border: 1px solid $cx-border-color;
+		border-bottom: 0;
+
+		@include media-only(small-mobile, max) {
+			padding: 15px;
+		}
+
 		p {
 			font-size: 14px;
 			@include cx-truncation(3, 1.65, #fff);
@@ -81,14 +95,15 @@
 	}
 
 	.post-footer {
-	    border-top: 1px solid $cx-border-color;
-	    margin: 20px 0 0;
-	    padding: 20px 0 0;
+	    border: 1px solid $cx-border-color;
+	    padding: 20px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		@extend %slight-rounded;
 		@extend .pos-r;
 
 		@include media-only(small-mobile, max) {
-			margin-top: 15px;
-			padding-top: 15px;
+			padding: 15px;
 		}
 
 		.post-meta {
@@ -103,19 +118,22 @@
 		}
 
 		.post-more {
-			left: 0;
+			left: 20px;
 			bottom: 0;
 			opacity: 0;
-			transform: translateY(100%);
+			transform: translateY(0px);
 			@extend %cx-transition;
 			@extend .pos-a;
+
+			@include media-only(small-mobile, max) {
+				left: 15px;
+			}
 
 			a {
 				text-transform: uppercase;
 				font-weight: 500;
-				font-size: 14px;
+				font-size: 13px;
 				letter-spacing: 0.5px;
-				// @include cx-color(primary, color);
 				@extend %color-primary;
 
 				i {
@@ -123,7 +141,6 @@
 				}
 
 				&:hover {
-					// @include cx-default-color(color, dark);
 					@extend %color-dark;
 
 					i {
@@ -134,7 +151,65 @@
 		}
 	}
 
+	.element-carousel {
+		padding: 0;
+		margin: 0;
+		overflow: initial;
+
+		.swiper-arrow {
+			top: 50%;
+		    opacity: 0.5;
+		    width: 36px;
+		    height: 36px;
+		    line-height: 36px;
+		    margin-top: -18px;
+		    border-radius: 0;
+		    @extend %bgc-dark;
+
+			&.prev {
+				left: 0;
+			}
+
+			&.next {
+				right: 0;
+			}
+
+			&:hover {
+				@extend %color-white;
+			}
+		}
+
+		&:hover {
+			.swiper-arrow {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.embed {
+	    padding: 0;
+	    padding-bottom: 56.25%;
+	    height: 0;
+	    @extend .pos-r;
+	    @extend %overflow-hidden;
+
+	    iframe {
+		    top: 0;
+		    left: 0;
+		    border: 0;
+		    width: 100%;
+		    height: 100%;
+		    @extend .pos-a;
+	    }
+	}
+
 	&:hover {
+		.post-media {
+			&::before {
+				width: 100%;
+			}
+		}
+
 		img {
 			transform: scale(1.09);
 		}
@@ -144,8 +219,24 @@
 		}
 
 		.post-more {
-			transform: translateY(0);
+			transform: translateY(-20px);
 			opacity: 1;
+
+			@include media-only(small-mobile, max) {
+				transform: translateY(-15px);
+			}
+		}
+
+		.element-carousel[data-effect="slide"] {
+			img {
+				transform: none;
+			}
+
+			.swiper-slide-visible {
+				img {
+					transform: scale(1.09);
+				}
+			}
 		}
 	}
 }

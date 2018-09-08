@@ -17,11 +17,9 @@
     font-weight: 700;
     text-transform: uppercase;
     z-index: 999;
-    // @include cx-default-color(bgc, dark);
     @extend .circle;
     @extend %bgc-primary;
 	@extend %cx-transition;
-    // @include cx-default-color(color, white);
     @extend %color-white;
     @extend %overflow-hidden;
 
@@ -31,16 +29,23 @@
         @extend .pos-r;
 
     	&:first-child {
-    		right:-1.5px;
+    		right: -1.5px;
     	}
 
     	&:last-child {
-    		left:-1.5px;
+    		left: -1.5px;
     	}
     }
 
     &:hover {
-    	// @include cx-color(primary, bg);
         @extend %bgc-dark;
+    }
+
+    @include media-only(notebook, max) {
+        bottom: 30px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
     }
 }

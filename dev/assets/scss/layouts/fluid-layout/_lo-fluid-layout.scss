@@ -7,7 +7,18 @@
 	.container {
 		max-width: 100%;
 		width: auto;
-		padding: 0 50px;
+
+		@include media-only(wide, min) {
+			padding: 0 50px;
+		}
+
+		@include media-only(wide, max) {
+			padding: 0 30px;
+		}
+
+		@include media-only(small-mobile, max) {
+			padding: 0 20px;
+		}
 	}
 
 	.row:not(.product-row) {
@@ -24,12 +35,20 @@
 		&.sticky {
 			.header-area {
 				padding: 6px 0;
+
+				@include media-only(wide, max) {
+					padding: 0;
+				}
 			}
 		}
 	}
 
 	.header-area {
-		padding: 23.5px 0;
+		padding: 25px 0;
+
+		@include media-only(notebook, max) {
+			padding: 20px 0;
+		}
 	}
 
 	.logo {
@@ -47,20 +66,34 @@
 	}
 
 	.top-promo-banners,
-	#primary-slider {
+	#primary_slider {
 		margin-bottom: 20px;
+	}
+
+	@include respond-to(mobile) {
+		.top-promo-banners {
+			margin-bottom: 0;
+		}
+
+		.slider-with-banner {
+			.promo-banner:not(.last) {
+				margin-bottom: 20px;
+			}
+		}
 	}
 
 	.product-row {
 		margin-left: -40px;
 	    margin-right: -40px;
-		.swiper-arrow {
-			&.next {
-				right: -25px;
-			}
+	    @include media-only(wide, min) {
+			.swiper-arrow {
+				&.next {
+					right: -25px;
+				}
 
-			&.prev {
-				left: -25px;
+				&.prev {
+					left: -25px;
+				}
 			}
 		}
 	}

@@ -15,7 +15,6 @@
     top: 40%;
     border-radius: 100%;
     color: #e2e2e2;
-    // @include cx-default-color(bgc, white);
     @extend .pos-a;
     @extend %cx-transition;
 
@@ -23,22 +22,31 @@
         opacity: 0;
     }
 
+    @include media-only(wide, max) {
+        top: 50%;
+    }
+
     i {
         font-size: 50px;
     }
 
     &.prev {
-    	left: -35px;
+    	left: -30px;
+
+        @include media-only(wide, max) {
+            left: -10px;
+        }
     }
 
     &.next {
-    	right: -35px;
+    	right: -30px;
+
+        @include media-only(wide, max) {
+            right: -10px;
+        }
     }
 
     &:hover {
-    	// @include cx-color(primary, border);
-    	// @include cx-color(primary, bg);
-     //    @include cx-default-color(color, white);
         @extend %color-primary;
     }
 
@@ -78,55 +86,59 @@
         visibility: hidden;
         opacity: 0;
     }
+
+    .container-fluid & {
+        display: none;
+    }
 }
 
-// .swiper-container-horizontal {
-//     .swiper-pagination-testimonial {
-//         position: absolute;
-//         text-align: center;
-//         z-index: 10;
+.swiper-container-horizontal {
+    .swiper-pagination-testimonial {
+        text-align: center;
+        z-index: 10;
+        @extend .pos-a;
 
-//         &.swiper-pagination-bullets {
-//             bottom: -45px;
+        &.swiper-pagination-bullets {
+            bottom: -45px;
 
-//             > span {
-//                 width: 12px;
-//                 height: 12px;
-//                 border: 1px solid #898989;
-//                 opacity: 1;
-//                 margin: 0px 7px;
-//                 @include cx-default-color(bgc, white);
-//                 @extend .pos-r;
+            > span {
+                width: 12px;
+                height: 12px;
+                border: 1px solid #898989;
+                opacity: 1;
+                margin: 0px 7px;
+                @extend %bgc-white;
+                @extend .pos-r;
 
-//                 &::before {
-//                     content: '';
-//                     width: 4px;
-//                     height: 4px;
-//                     background: none;
-//                     position: absolute;
-//                     top: 3px;
-//                     left: 3px;
-//                     @extend .circle;
-//                     @extend %cx-transition;
-//                 }
-//             }
-//             > span:hover,
-//             > .swiper-pagination-bullet-active {
-//                 @include cx-color(primary, border);
+                &::before {
+                    content: '';
+                    width: 4px;
+                    height: 4px;
+                    background: none;
+                    top: 3px;
+                    left: 3px;
+                    @extend .pos-a;
+                    @extend .circle;
+                    @extend %cx-transition;
+                }
+            }
+            > span:hover,
+            > .swiper-pagination-bullet-active {
+                @extend %border-primary;
 
-//                 &::before {
-//                     @include cx-color(primary, bg);
-//                 }
-//             }
-//         }
-//     }
+                &::before {
+                    @extend %bgc-primary;;
+                }
+            }
+        }
+    }
 
-//     .with-right-padding & {
-//         .swiper-pagination-bullets {
-//             padding-right: 30px;
-//         }
-//     }
-// }
+    .with-right-padding & {
+        .swiper-pagination-bullets {
+            padding-right: 30px;
+        }
+    }
+}
 
 #primary_slider {
     .swiper-pagination {
@@ -144,7 +156,6 @@
 
             &:hover,
             &.swiper-pagination-bullet-active {
-                // @include cx-color(secondary, bg);
                 @extend %bgc-primary;
             }
         }

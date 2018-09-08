@@ -4,16 +4,11 @@
  */
 
 .header-cart {
+	margin-left: 5px;
 	button {
-	    // background: none;
-	    // border: 1px solid #5c5c5c;
-	    // box-shadow: none;
 	    padding: 0;
-	    // width: 48px;
 	    height: auto;
 	    line-height: 1;
-	    // float: right;
-	    // text-align: center;
 	    cursor: pointer;
 	    @extend %rounded-corners;
 	    @extend .pos-r;
@@ -22,10 +17,13 @@
 		    font-size: 20px;
 		    left: -6px;
 		    font-weight: bold;
-		    // @include cx-default-color(color, black);
 		    @extend %color-black;
 		    @extend %cx-transition;
 		    @extend .pos-r;
+
+		    @include respond-to(mobile) {
+		    	font-size: 22px;
+		    }
 	    }
 
 	    .count-style {
@@ -39,24 +37,15 @@
 		    z-index: 2;
 		    @extend .pos-a;
 		    @extend .circle;
-		    // @include cx-default-color(color, white);
-		    // @include cx-color(secondary, bg);
 		    @extend %color-white;
 		    @extend %bgc-primary;
-
-		    // .color-scheme-three & {
-		    // 	@include cx-default-color(color, dark);
-		    // }
 	    }
 
 		&:focus,
 	    &:hover {
-	    	// @include cx-default-color(bgc, transparent);
-	    	// @include cx-color(primary, border);
 	    	@extend %bgc-transparent;
 	    	@extend %border-primary;
 	    	i {
-	    		// @include cx-color(primary, color);
 	    		@extend %color-primary;
 	    	}
 	    }
@@ -69,7 +58,6 @@
 	.dropdown-menu {
 	    max-height: 0;
 	    display: block;
-	    // opacity: 0;
 	    z-index: 9911;
 	    right: -10px;
 	    left: auto;
@@ -83,11 +71,25 @@
 
 	    @include media-only(small-mobile, max) {
 			width: 290px;
+			left: 50%;
+			transform: translateX(-42%);
 	    }
 
 	    &.open {
 		    max-height: 450px;
-		    // opacity: 1;
+		    @include media-only(small-mobile, max) {
+		    	max-height: 490px;
+		    }
+	    }
+
+	    @include media-only(small-mobile, max) {
+		    .default-btn {
+		    	width: 100%;
+
+		    	&:first-child {
+		    		margin-bottom: 12px;
+		    	}
+		    }
 	    }
 
 	    .shopping-cart-content {
@@ -134,8 +136,6 @@
 		    display: inline-block;
 		    @extend .circle;
 		    @extend .pos-a;
-		    // @include cx-color(primary, bg);
-		    // @include cx-default-color(color, white);
 		    @extend %bgc-primary;
 		    @extend %color-white;
 		}
@@ -151,19 +151,22 @@
 			margin-bottom: 5px;
 			padding-right: 5px;
 			@include cx-truncation(1, 1.2, #fff);
+
+			@include media-only(small-mobile, max) {
+				font-size: 14px;
+				font-weight: 500;
+			}
 		}
 
 		.cart-price {
 			margin-bottom: 5px;
 			font-weight: 500;
 		    font-size: 15px;
-			// @include cx-color(primary, color);
 			@extend %color-primary;
 		}
 
 		.shopping-cart-delete {
 			i {
-				// color: $cx-secondary-color-1;
 				@extend %color-secondary;
 			}
 		}
@@ -177,7 +180,6 @@
 	.shopping-cart-title {
 		span {
 			display: block;
-		    // @include cx-default-color(color, black);
 		    @extend %color-black;
 		}
 	}
@@ -212,7 +214,7 @@
 .header-cart-area {
 	.top-links {
 		.dropdown-menu {
-			top: 12px;
+			top: 100%;
 		}
 	}
 
@@ -221,7 +223,11 @@
 			i {
 				font-size: 20px;
 				font-weight: bold;
-				line-height: 0;
+				line-height: 1;
+
+			    @include respond-to(mobile) {
+			    	font-size: 22px;
+			    }
 			}
 
 			a {

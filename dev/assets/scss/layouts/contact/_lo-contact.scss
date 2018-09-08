@@ -3,9 +3,15 @@
  *
  */
 
+.map-location {
+	@extend %slight-rounded;
+	@extend %overflow-hidden;
+}
+
 .contact-form-wrapper {
 	padding: 30px;
-	@include cx-default-color(bgc, offset);
+	@extend %slight-rounded;
+	@extend %bgc-offset;
 
 	@include respond-to(mobile) {
 		margin-top: $cx-col-spacing;
@@ -18,20 +24,25 @@
 	input:not([type="submit"]),
 	textarea {
 		border-color: transparent;
+
+		&:focus {
+			@extend %border-primary;
+		}
 	}
 
 	textarea {
 	    min-height: 140px;
+	    padding-top: 12px;
 	}
 
-	.btn-secondary {
-		@include cx-color(primary, bg);
-		@include cx-default-color(color, white);
+	.btn.btn-secondary {
+		@extend %bgc-primary;
+		@extend %color-white;
 
 		&:hover {
 			#whole & {
-				background: #555;
-				@include cx-default-color(color, white);
+				@extend %bgc-dark;
+				@extend %color-white;
 			}
 		}
 	}
@@ -60,7 +71,7 @@
 		    font-weight: 300;
 		    letter-spacing: 1px;
 		    font-size: 30px;
-		    @include cx-default-color(color, black);
+		    @extend %color-black;
 		}
 
 		.subtitle {
@@ -77,7 +88,7 @@
 		    font-size: 24px;
 		    font-weight: normal;
 		    margin-bottom: 20px;
-		    @include cx-default-color(color, black);
+		    @extend %color-black;
 		}
 
 		.list-inline-item {

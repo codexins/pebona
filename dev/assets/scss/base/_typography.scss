@@ -275,30 +275,6 @@ input[type="button"]:hover {
     }
 }
 
-// $c_schemes: one two three four;
-
-// @each $single-scheme in $c_schemes {
-//     .color-scheme-#{$single-scheme} {
-//         ::-webkit-selection {
-//             background: cx-color(pallete-#{$single-scheme}, primary);
-//             text-shadow: none;
-//             color: #fff;
-//         }
-
-//         ::-moz-selection {
-//             background: cx-color(pallete-#{$single-scheme}, primary);
-//             text-shadow: none;
-//             color: #fff;
-//         }
-
-//         ::selection {
-//             background: cx-color(pallete-#{$single-scheme}, primary);
-//             text-shadow: none;
-//             color: #fff;
-//         }
-//     }
-// }
-
 ::-webkit-selection {
     background: $cx-primary-color;
     text-shadow: none;

@@ -23,8 +23,6 @@
 		    @extend .pos-r;
 
 		    &:hover {
-		    	// @include cx-default-color(bgc, transparent);
-		    	// @include cx-color(primary, color);
 		    	@extend %bgc-transparent;
 		    	@extend %color-primary;
 		    }
@@ -47,7 +45,7 @@
 
 	.gallery-with-thumbs {
 		.nav-slider {
-			max-height: 322px;
+			max-height: 285px;
 		}
 		.swiper-arrow {
 			@include respond-to(tablet) {

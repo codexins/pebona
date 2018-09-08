@@ -16,7 +16,7 @@
 	}
 
 	.testimonial-section {
-		margin-bottom: 100px;
+		margin-bottom: 120px;
 	}
 }
 
@@ -25,7 +25,7 @@
 		@extend %mt-half;
 
 		@include respond-to(mobile) {
-			margin-bottom: 30px;
+			margin-bottom: 1.1 * $cx-col-spacing;
 		}
 	}
 }

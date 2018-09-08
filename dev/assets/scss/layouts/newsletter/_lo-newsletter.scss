@@ -13,7 +13,6 @@
 		    line-height: 28px;
 		    flex: 0 0 30%;
 		    max-width: 30%;
-		    // @include cx-default-color(color, black);
 		    @extend %color-black;
 		}
 
@@ -26,7 +25,6 @@
 		    line-height: 24px;
 		    flex: 0 0 60%;
 		    max-width: 60%;
-		    // @include cx-default-color(color, black);
 		    @extend %color-black;
 		}
 	}
@@ -47,15 +45,17 @@
 			    height: 48px;
 			    line-height: 46px;
 			    width: 100%;
-			    // @include cx-default-color(bgc, white);
+			    border-radius: 17px;
 			    @extend %bgc-white;
-			    @extend %rounded-corners;
 			    @extend %cx-transition;
 
 			    &:active,
 			    &:focus {
-			    	// @include cx-color(primary, border);
 			    	@extend %border-primary;
+			    }
+
+			    @include media-only(small-mobile, max) {
+		    	    padding-right: 30px;
 			    }
 			}
 
@@ -63,21 +63,23 @@
 			    padding: 0 20px;
 			    height: 48px;
 			    line-height: 48px;
-			    // position: absolute;
 			    right: 0;
 			    top: 0;
 			    text-transform: capitalize;
 			    font-weight: 400;
-			    // @include cx-color(primary, bg);
-			    // @include cx-default-color(color, white);
+			    border-radius: 17px;
 			    @extend .pos-a;
 			    @extend %bgc-primary;
 			    @extend %color-white;
-			    @extend %rounded-corners;
 
 			    &:hover {
-			    	// @include cx-default-color(bgc, dark);
 			    	@extend %bgc-dark;
+			    }
+
+			    @include media-only(small-mobile, max) {
+				    position: static;
+				    margin-top: 15px;
+				    width: 100%;
 			    }
 			}
 		}
@@ -123,10 +125,8 @@
 	.color-scheme-two & {
 		input {
 			&[type="submit"] {
-				// @include cx-default-color(color, dark);
 				@extend %color-dark;
 				&:hover {
-					// @include cx-default-color(color, white);
 					@extend %color-white;
 				}
 			}

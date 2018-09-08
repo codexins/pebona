@@ -3,48 +3,70 @@
  *
  */
 
-// @include respond-to(tablet) {
-// 	#secondary {
-// 		display: flex;
-// 		flex-wrap: wrap;
-// 		align-items: flex-start;
-// 		> .sidebar-widget {
-// 			flex: 0 0 49%;
-// 			margin-right: 2%;
+@include respond-to(tablet) {
+	#secondary {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		margin-left: -2%;
+		margin-right: -2%;
+		margin-bottom: 40px;
 
-// 			&:nth-child(odd) {
-// 				margin-right: 0;
-// 			}
-// 		}
-		
-// 		.price-filter-widget,
-// 		.search-widget {
-// 			flex: 0 0 100%;
-// 		}
+		> .sidebar-widget {
+			flex: 0 0 50%;
+			max-width: 50%;
+			padding-left: 2%;
+			padding-right: 2%;
+			padding-bottom: 10px;
+			border-bottom: 0;
 
-// 		.list-widget {
-// 			order: 3;
-// 		}
+			.products-wrapper & {
+				&:nth-child(1) {
+					order: 1;
+				}
 
-// 		.recent-posts {
-// 			order: 4;
-// 		}
+				&:nth-child(2) {
+					order: 3;
+				}
 
-// 		.instagram-widget {
-// 			order: 5;
-// 		}
+				&:nth-child(3) {
+					order: 4;
+				}
 
-// 		.sidebar-widget {
-// 			&.banner {
-// 				order: 4;
+				&:nth-child(4) {
+					order: 5;
+				}
 
-// 				a {
-// 					max-width: 200px;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+				&:nth-child(5) {
+					order: 6;
+				}
+
+				&:nth-child(6) {
+					order: 2;
+				}
+			}
+		}
+
+		.blog-posts-section & {
+			.search-widget {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+
+			.list-widget {
+				order: 3;
+			}
+
+			.recent-posts {
+				order: 4;
+			}
+
+			.instagram-widget {
+				order: 5;
+			}
+		}
+	}
+}
 
 /* Widget Title */
 .widgettitle {
@@ -58,18 +80,10 @@
 
 	#colophon & {
 		@extend %color-white;
+		&.dark {
+			@extend %color-dark;
+		}
 	}
-
-    // &::before {
-	   //  content: '';
-	   //  width: 70px;
-	   //  height: 1px;
-	   //  bottom: -1px;
-	   //  left: 0;
-	   //  // @include cx-color(primary, bg);
-	   //  @extend .pos-a;
-	   //  @extend %bgc-primary;
-    // }
 }
 
 .sidebar-widget {
@@ -110,17 +124,12 @@
 		    padding: 0;
 		    border-top-left-radius: 0;
 		    border-bottom-left-radius: 0;
-
-		    // @include cx-color(primary, bg);
-		    // @include cx-default-color(color, white);
 		    @extend %bgc-primary;
 		    @extend %color-white;
 
-			#whole & {
-			    &:hover {
-			    	background: #555;
-			    }
-			}
+		    &:hover {
+		    	@extend %bgc-dark;
+		    }
 		}
 	}
 
@@ -145,14 +154,12 @@
 	    font-weight: 400;
 	    line-height: 25px;
 	    color: #808080;
-	    // @include cx-default-color(color, dark);
 	}
 
 	> p {
 	    margin: 0 0 20px;
 	    font-style: italic;
 	    color: #808080;
-	    // @include cx-default-color(color, black);
 
 	    &:last-of-type {
 	    	@extend %mb0;
@@ -162,7 +169,6 @@
 	.footer-contact {
 		@extend %mt-half;
 		> p {
-		    // padding-left: 35px;
 		    margin: 10px 0 0;
 		    span {
 			    padding-right: 7px;
@@ -187,10 +193,13 @@
 .recent-posts-widget {
 	@extend %overflow-hidden;
 
+	.swiper-arrow {
+		display: none;
+	}
+
 	.posts-single {
-	    padding: 0 0 20px;
-	    margin-bottom: 20px;
-	    border-bottom: 1px solid $cx-border-color;
+	    margin-bottom: 15px;
+	    align-content: center;
 
 	    &:last-child {
 	    	border-bottom: 0;
@@ -202,23 +211,33 @@
 	.post-thumbnail {
 		> a {
 			display: block;
+			max-width: 80px;
 			@extend %slight-rounded;
 			@extend %overflow-hidden;
 			@extend .pos-r;
 		}
 	}
 
+	.post-content {
+		align-self: center;
+	}
+
+	.element-carousel {
+		padding: 0;
+		margin: 0;
+	}
+
 	.overlay {
 	    opacity: 0;
 	    visibility: hidden;
 	    z-index: 0;
-	    position: absolute;
 	    left: 0;
 	    top: 0;
 	    width: 100%;
 	    height: 100%;
 	    transform: scale(.8);
 	    background-color: rgba(0,0,0,.4);
+	    @extend .pos-a;
 	    @extend %cx-transition;
 	}
 
@@ -226,16 +245,14 @@
 		h5 {
 		    font-size: 14px;
 		    text-transform: capitalize;
-		    line-height: 20px;
 		    font-weight: 400;
-		    margin-bottom: 13px;
+		    margin-bottom: 10px;
+		    @include cx-truncation(2, 1.5, #fff);
 
 		    a {
-		    	// @include cx-default-color(color, black);
 		    	@extend %color-black;
 
 		    	&:hover {
-		    		// @include cx-color(primary, color);
 		    		@extend %color-primary;
 		    	}
 		    }
@@ -251,7 +268,6 @@
 	    color: #555;
 	    line-height: 1;
 	    text-transform: capitalize;
-	    font-style: italic;
 	}
 
 	.posts-single {
@@ -275,10 +291,8 @@
 		    display: block;
 		    padding-bottom: 15px;
 		    color: #808080;
-		    // @include cx-default-color(color, black);
 
 		    &:hover {
-		    	// @include cx-color(primary, color);
 		    	@extend %color-primary;
 		    }
 		}
@@ -324,7 +338,6 @@
 	    display: block;
 	    line-height: 45px;
 	    height: 45px;
-	    // text-transform: uppercase;
 	    font-size: 12px;
 	    font-weight: 700;
 	    color: #808080;
@@ -390,6 +403,7 @@
 
 	.list-inline-item:not(:last-child) {
 	    margin-right: 3px;
+	    margin-bottom: 5px;
 	}
 }
 
@@ -413,14 +427,10 @@
 			    margin: 0 10px 10px 0;
 			    font-size: 13px;
 			    text-transform: capitalize;
-			    // @include cx-default-color(color, black);
 			    @extend %color-black;
 			    @extend %rounded-corners;
 
 			    &:hover {
-			    	// @include cx-color(primary, border);
-			    	// @include cx-color(primary, bg);
-			    	// @include cx-default-color(color, white);
 			    	@extend %border-primary;
 			    	@extend %bgc-primary;
 			    	@extend %color-white;
@@ -518,10 +528,8 @@
 		    text-transform: capitalize;
 		    font-size: 14px;
 		    font-weight: 400;
-		    // padding-bottom: 13px;
 		    display: block;
 		    margin: 5px 0;
-		    // @include cx-default-color(color, black);
 		    @extend %color-black;
 
 		    &:first-child {
@@ -550,13 +558,9 @@
 
 		    &:hover,
 		    &:focus {
-		    	// @include cx-color(primary, color);
 		    	@extend %color-primary;
 
 		    	&::before {
-		    		// @include cx-default-color(color, white);
-		    		// @include cx-color(primary, bg);
-		    		// @include cx-color(primary, border);
 		    		@extend %color-white;
 		    		@extend %bgc-primary;
 		    		@extend %border-primary;
@@ -574,32 +578,34 @@
 		list-style: none;
 
 		li {
-			margin-bottom: 5px;
-			padding-bottom: 13px;
+			margin-bottom: 10px;
 			padding-left: 15px;
 
 			a {
 			    font-size: 14px;
 			    text-transform: capitalize;
-			    // @include cx-default-color(color, black);
+			    display: block;
 			    @extend %color-black;
 			    @extend .pos-r;
 
 			    &:hover,
 			    &:focus {
-			    	// @include cx-color(primary, color);
 			    	@extend %color-primary;
+
+			    	&::before {
+			    		@extend %color-primary;
+			    	}
 			    }
 
 			    &::before {
-				    content: "\e684";
-				    font-family: 'Pe-icon-7-stroke';
-				    font-size: 24px;
-				    position: absolute;
-				    right: 100%;
+					content: "\f488";
+				    font-family: Ionicons;
+				    font-size: 14px;
+				    left: -15px;
 				    top: 0;
-				    // @include cx-default-color(color, black);
-				    @extend %color-black;
+				    @extend %color-dark;
+				    @extend .pos-a;
+				    @extend %cx-transition;
 			    }
 				
 				span {
@@ -635,7 +641,6 @@
 		    }
 
 		    span {
-		    	// border: 1px solid #dfdfdf;
 			    box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
 			    display: block;
 			    width: 17px;
@@ -710,6 +715,7 @@
 					height: 0;
 					width: 100%;
 					background: rgba(#000, 0.5);
+					z-index: 1;
 					@extend .pos-a;
 				    @extend %cx-transition;
 				}	
@@ -731,16 +737,13 @@
 	p {
 		font-size: 14px;
 		margin-top: 5px;
-		// @include cx-default-color(color, black);
 		@extend %color-black;
 		@extend %mb0;
 
 		a {
-			// @include cx-color(primary, color);
 			@extend %color-primary;
 
 			&:hover {
-				// @include cx-default-color(color, dark);
 				@extend %color-dark;
 			}
 		}

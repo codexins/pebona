@@ -5,20 +5,72 @@
 
 .gallery-with-thumbs {
 
+	display: flex;
+	flex-wrap: wrap;
+
+	.product-thumb-container {
+		order: 1;
+		flex: 0 0 100px;
+		max-width: 100px;
+
+		@include media-only(notebook, max) {
+			order: 2;
+			flex-basis: 100%;
+			max-width: 100%;
+		}
+	}
+
+	.product-image-container {
+	    max-width: calc(100% - 100px);
+		order: 2;
+
+		@include media-only(notebook, max) {
+			order: 1;
+			max-width: 100%;
+			margin-bottom: 15px;
+		}
+	}
+
 	.swiper-arrow {
-		left: 47.5%;
+		left: 43%;
 		transform: translateX(-50%);
 		height: 30px;
 		line-height: 0;
 		margin: 0;
+
+		@include media-only(notebook, max) {
+		    margin-top: -15px;
+		    transform: rotate(-90deg);
+		}
+
 		&.next {
 			top: auto;
-			bottom: -30px;
+			bottom: 30px;
+
+			@include media-only(wide, max) {
+				bottom: -5px;
+			}
+
+			@include media-only(notebook, max) {
+				right: -5px;
+				bottom: auto;
+				top: 50%;
+				left: auto;
+			}
 		}
 
 		&.prev {
-			top: -30px;
-			bottom: auto;
+			top: 30px;
+
+			@include media-only(wide, max) {
+				top: -5px;
+			}
+
+			@include media-only(notebook, max) {
+				left: -5px;
+				top: 50%;
+				right: auto;
+			}
 		}
 
 		i {
@@ -32,7 +84,6 @@
 			@extend %mb0;
 			> a {
 				display: block;
-				// border: 1px solid $cx-border-color;
 				@extend .pos-r;
 
 				&:hover {
@@ -58,7 +109,6 @@
 					left: 50%;
 					transform: translate(-50%, -50%);
 					font-size: 30px;
-					// @include cx-default-color(color, white);
 					@extend %color-white;
 					@extend .pos-a;
 				}
@@ -67,14 +117,17 @@
 	}
 
 	.nav-slider {
-		padding-right: 10px;
+		padding-right: 15px;
 		@extend %overflow-hidden;
+
+		@include media-only(notebook, max) {
+			padding-right: 0;
+		}
+
 		.swiper-slide {
-			// border: 1px solid $cx-border-color;
 			@extend %cx-transition;
 
 			&:hover {
-				// @include cx-color(primary, border);
 				@extend %border-primary;
 			}
 
@@ -83,6 +136,11 @@
 				height: 100%;
 				opacity: 0.3;
 				@extend %cx-transition;
+
+				@include media-only(notebook, max) {
+					width: 100%;
+					height: auto;
+				}
 			}
 
 			&:hover,
@@ -98,11 +156,17 @@
 				opacity: 1;
 
 				&.next {
-					bottom: -15px;
+					bottom: -5px;
+					@include media-only(notebook, max) {
+						bottom: auto;
+					}
 				}
 
 				&.prev {
-					top: -15px;
+					top: -5px;
+					@include media-only(notebook, max) {
+						top: 50%;
+					}
 				}
 			}
 		}
@@ -116,18 +180,15 @@
 	    text-transform: capitalize;
 	    line-height: 1;
 	    font-weight: 400;
-	    // @include cx-default-color(color, dark);
 	    @extend %color-dark;
 	}
 
-	.product-meta,
 	.product-description {
 	    font-size: 14px;
-	    line-height: 25px;
 	    border-top: 1px solid $cx-border-color;
 	    padding: 25px 0;
+	    margin-top: 25px;
 	    border-bottom: 1px solid $cx-border-color;
-	    // @include cx-default-color(color, black);
 	    @extend %color-black;
 
 	    p {
@@ -142,24 +203,6 @@
 
 		.price-old {
 			padding-right: 0;
-		}
-	}
-
-	.product-meta {
-		li {
-		    line-height: 25px;
-		    font-style: initial;
-		    font-size: 14px;
-		    margin: 0 0 5px;
-
-		    &:last-child {
-		    	@extend %mb0;
-		    }
-
-		    span {
-			    color: #58bd1a;
-			    margin-left: 5px;
-		    }
 		}
 	}
 
@@ -190,7 +233,6 @@
 			select {
 			    border: 1px solid $cx-border-color;
 			    width: 70px;
-			    // @include cx-default-color(bgc, white);
 			    @extend %bgc-white;
 			}
 		}
@@ -226,7 +268,7 @@
 			    padding-left: 1px;
 				a {
 				    border: 1px solid rgba(0, 0, 0, 0.05);
-				    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+			        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
 				    display: block;
 				    height: 22px;
 				    width: 22px;
@@ -235,12 +277,11 @@
 					&.active,
 					&:focus,
 				    &:hover {
-				    	border-color: #333
+				    	border-color: #333;
 				    }
 				}
 
 				.white {
-					// @include cx-default-color(bgc, white);
 					@extend %bgc-white;
 				}
 
@@ -258,6 +299,10 @@
 			li {
 				&:not(:last-child) {
 					margin-right: 25px;
+				}
+
+				@include media-only(small-mobile, max) {
+					width: 100%;
 				}
 			}
 
@@ -335,19 +380,18 @@
     }
 }
 
-// .product-des {
-//     margin: 20px 0 0 0;
-//     font-size: 14px;
-//     line-height: 26px;
-//     @include cx-default-color(color, black);
-// }
-
 .product-layout {
 	padding: 15px;
 	@extend %cx-transition;
 
 	&:hover {
 		box-shadow: 0 0 20px 0 rgba(41,44,58,.15);
+	}
+
+	@include respond-to(mobile) {
+		&.product-list {
+			box-shadow: 0 0 20px 0 rgba(41,44,58,.15);
+		}
 	}
 }
 
@@ -382,11 +426,20 @@
 	    @extend .pos-a;
 	    @extend %bgc-white;
 
+	    @include respond-to(notebook) {
+	    	width: 180px;
+	    }
+
 	    a {
 	    	line-height: 0;
 	    	display: block;
 	    	width: 50px;
 	    	border-right: 1px solid $cx-border-color;
+
+		    @include respond-to(notebook) {
+		    	width: 45px;
+		    }
+
 	    	i {
 		    	font-size: 18px;
 		    	font-weight: bold;
@@ -403,6 +456,12 @@
 		    opacity: 1;
 		    visibility: visible;
 		    transform: translateY(0);
+	    }
+
+	    @include respond-to(mobile) {
+	    	opacity: 1;
+	    	transform: translateY(0);
+	    	visibility: visible;
 	    }
 	}
 
@@ -433,9 +492,8 @@
 }
 
 .product-price {
-	// margin: 15px 0 25px;
-	// line-height: 1;
 	@extend %mb0;
+
 	> p {
 		> span {
 			&:not(:last-child) {
@@ -451,7 +509,6 @@
 		    text-align: center;
 		    text-transform: capitalize;
 		    font-weight: 400;
-		    // @include cx-default-color(color, white);
 		    @extend %color-white;
 		    @extend %bgc-primary;
 		    @extend %slight-rounded;
@@ -471,7 +528,6 @@
 	.price-new {
 		font-size: 18px;
 	    font-weight: 500;
-		// @include cx-color(primary, color);
 		@extend %color-primary;
 	}
 }
@@ -545,8 +601,7 @@
 				text-align: center;
 				font-size: 13px;
 				padding: 7px 15px;
-				line-height: 40px;
-		    	// @include cx-default-color(color, white);
+				line-height: 30px;
 		    	@extend %color-white;
 		    	@extend %slight-rounded;
 
@@ -625,79 +680,6 @@
 	}
 }
 
-// .countdown-wrapper {
-//     text-align: center;
-//     position: absolute;
-//     left: 0;
-//     bottom: 0;
-//     width: 100%;
-//     opacity: 0.85;
-//     z-index: 9;
-// 	@extend %cx-transition;
-
-// 	.countdown-timer {
-// 	    display: inline-block;
-// 	    @include cx-color(primary, bg);
-// 	    @extend %rounded-corners;
-
-// 	    .countdown-section {
-// 		    min-width: 55px;
-// 		    margin-right: 2px;
-// 		    padding: 12px 5px 8px;
-// 		    background: none;
-// 		    display: inline-block;
-// 		    text-align: center;
-// 		    @extend .pos-r;
-
-// 		    @include media-only(notebook, max) {
-// 		    	min-width: 45px;
-// 		    }
-
-// 		    .countdown-amount {
-// 			    font-size: 18px;
-// 			    font-weight: 500;
-// 			    @include cx-default-color(color, white);
-
-// 			    @include respond-to(tablet) {
-// 			    	font-size: 12px;
-// 			    }
-
-// 			    @include respond-to(mobile) {
-// 			    	font-size: 14px;
-// 			    }
-// 		    }
-
-// 		    .countdown-word {
-// 			    font-size: 10px;
-// 			    font-weight: 400;
-// 			    display: block;
-// 			    text-transform: uppercase;
-// 			    @include cx-default-color(color, white);
-// 		    }
-
-// 		    &::after {
-// 			    background: rgba(255,255,255,0.2);
-// 			    content: '';
-// 			    position: absolute;
-// 			    right: -3px;
-// 			    top: 50%;
-// 			    width: 1px;
-// 			    height: 25px;
-// 			    margin-top: -12px;
-// 		    }
-
-// 		    &:last-child {
-// 		    	margin-right: 0;
-// 		    	padding-right: 0;
-
-// 		    	&::after {
-// 		    		content: none;
-// 		    	}
-// 		    }
-// 	    }
-// 	}
-// }
-
 .wishlist-compare {
 	> button {
 	    width: auto;
@@ -712,7 +694,6 @@
 	    font-weight: normal;
 	    cursor: pointer;
 	    line-height: 1;
-	    // @include cx-default-color(color, black);
 	    @extend %bgc-black;
 
 	    &::before {
@@ -721,19 +702,17 @@
 		    font-size: 18px;
 		    margin-right: 8px;
 		    bottom: -3px;
+	        font-weight: bold;
 		    @extend %cx-transition;
 		    @extend .pos-r;
-		    // @include cx-default-color(color, black);
 		    @extend %color-black;
 	    }
 
 	    &:hover {
 	    	background: none;
-	    	// @include cx-color(primary, color);
 	    	@extend %color-primary;
 
 	    	&::before {
-	    		// @include cx-color(primary, color);
 	    		@extend %color-primary;
 	    	}
 	    }
@@ -742,6 +721,11 @@
 	    margin-right: 25px;
 	    &::before {
     	    content: "\e642";
+	    }
+
+	    @include media-only(small-mobile, max) {
+	    	margin-right: 0;
+	    	margin-bottom: 10px;
 	    }
 	}
 

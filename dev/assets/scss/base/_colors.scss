@@ -1,125 +1,5 @@
 // Color helpers
 
-// %primary-color-one {
-// 	color: cx-color(pallete-one, primary);
-// }
-
-// %primary-bg-one {
-// 	background: cx-color(pallete-one, primary);
-// }
-
-// %primary-border-one {
-// 	border-color: cx-color(pallete-one, primary);
-// }
-
-// %secondary-color-one {
-// 	color: cx-color(pallete-one, secondary);
-// }
-
-// %secondary-bg-one {
-// 	background: cx-color(pallete-one, secondary);
-// }
-
-// %secondary-border-one {
-// 	border-color: cx-color(pallete-one, secondary);
-// }
-
-// %header-bg-one {
-// 	background: cx-color(pallete-one, header);
-// }
-
-// %primary-color-two {
-// 	color: cx-color(pallete-two, primary);
-// }
-
-// %primary-bg-two {
-// 	background: cx-color(pallete-two, primary);
-// }
-
-// %primary-border-two {
-// 	border-color: cx-color(pallete-two, primary);
-// }
-
-// %secondary-color-two {
-// 	color: cx-color(pallete-two, secondary);
-// }
-
-// %secondary-bg-two {
-// 	background: cx-color(pallete-two, secondary);
-// }
-
-// %secondary-border-two {
-// 	border-color: cx-color(pallete-two, secondary);
-// }
-
-// %header-bg-two {
-// 	background: cx-color(pallete-two, header);
-// }
-
-// %primary-color-three {
-// 	color: cx-color(pallete-three, primary);
-// }
-
-// %primary-bg-three {
-// 	background: cx-color(pallete-three, primary);
-// }
-
-// %primary-border-three {
-// 	border-color: cx-color(pallete-three, primary);
-// }
-
-// %secondary-color-three {
-// 	color: cx-color(pallete-three, secondary);
-// }
-
-// %secondary-bg-three {
-// 	background: cx-color(pallete-three, secondary);
-// }
-
-// %secondary-border-three {
-// 	border-color: cx-color(pallete-three, secondary);
-// }
-
-// %header-bg-three {
-// 	background: cx-color(pallete-three, header);
-// }
-
-// %primary-color-four {
-// 	color: cx-color(pallete-four, primary);
-// }
-
-// %primary-bg-four {
-// 	background: cx-color(pallete-four, primary);
-// }
-
-// %primary-border-four {
-// 	border-color: cx-color(pallete-four, primary);
-// }
-
-// %secondary-color-four {
-// 	color: cx-color(pallete-four, secondary);
-// }
-
-// %secondary-bg-four {
-// 	background: cx-color(pallete-four, secondary);
-// }
-
-// %secondary-border-four {
-// 	border-color: cx-color(pallete-four, secondary);
-// }
-
-// %header-bg-four {
-// 	background: cx-color(pallete-four, header);
-// }
-
-// %color-secondary-1 {
-// 	color: $cx-secondary-color-1;
-// }
-
-// %bgc-secondary-1 {
-// 	background-color: $cx-secondary-color-1;
-// }
-
 %color-primary {
 	color: $cx-primary-color;
 }
@@ -137,7 +17,7 @@
 }
 
 %color-white {
-	color: #fff;
+	color: lighten($cx-text-color, 100%);
 }
 
 %color-dark {
@@ -165,7 +45,7 @@
 }
 
 %bgc-white {
-	background-color: #fff;
+	background-color: lighten($cx-text-color, 100%);
 }
 
 %bgc-dark {
@@ -199,70 +79,6 @@
 
 
 // Color Schemes
-
-// .primary-color {
-// 	@include cx-color(primary, color);
-// }
-
-// .primary-bg-color {
-// 	@include cx-color(primary, bg);
-// }
-
-// .primary-border-color {
-// 	@include cx-color(primary, border);
-// }
-
-// .secondary-color {
-// 	@include cx-color(secondary, color);
-// }
-
-// .secondary-bg-color {
-// 	@include cx-color(secondary, bg);
-// }
-
-// .secondary-border-color {
-// 	@include cx-color(secondary, border);
-// }
-
-// .header-bg-color {
-// 	@include cx-color(header, bg);
-// }
-
-// .color-transparent {
-// 	@include cx-default-color(color, transparent);
-// }
-
-// .color-offset {
-// 	@include cx-default-color(color, offset);
-// }
-
-// .color-white {
-// 	@include cx-default-color(color, white);
-// }
-
-// .color-dark {
-// 	@include cx-default-color(color, dark);
-// }
-
-// .color-black {
-// 	@include cx-default-color(color, black);
-// }
-
-// .bgc-transparent {
-// 	@include cx-default-color(bgc, transparent);
-// }
-
-// .bgc-offset {
-// 	@include cx-default-color(bgc, offset);
-// }
-
-// .bgc-white {
-// 	@include cx-default-color(bgc, white);
-// }
-
-// .bgc-dark {
-// 	@include cx-default-color(bgc, dark);
-// }
 
 .color-primary {
 	@extend %color-primary;

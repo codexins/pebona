@@ -20,7 +20,6 @@
         color: #e2e2e2;
         @extend %bgc-transparent;
 	    @extend .pos-a;
-	    // @include cx-default-color(color, white);
 	    @extend %cx-transition;
 
 	    i {
@@ -44,9 +43,6 @@
 	    }
 
 	    &:hover {
-	    	// @include cx-default-color(bgc, white);
-	    	// @include cx-color(primary, color);
-	    	// @extend %bgc-white;
 	    	@extend %color-primary;
 	    }
 
@@ -57,26 +53,28 @@
 		    line-height: 56px;
 
 		    &.next {
-		    	right: 15px;
+		    	right: 0;
 		    }
 
 		    &.prev {
-		    	left: 15px;
+		    	left: 0;
 		    }
 	    }
 	}
 
 	&:hover {
-		.swiper-arrow {
-			opacity: 1;
+		@include media-only(wide, min) {
+			.swiper-arrow {
+				opacity: 1;
 
-	    	&.prev {
-	    		left: 30px;
-	    	}
+		    	&.prev {
+		    		left: 30px;
+		    	}
 
-	    	&.next {
-	    		right: 30px;
-	    	}
+		    	&.next {
+		    		right: 30px;
+		    	}
+			}
 		}
 	}
 
@@ -93,96 +91,16 @@
 	    text-align: left;
 		@extend .pos-a;
 
-	    // @include respond-to(tablet) {
-	    // 	margin-top: 30px;
-	    // 	width: 460px;
-	    // }
+	    @include respond-to(mobile) {
+	    	max-width: 60%;
+	    }
 
-	    // @include respond-to(mobile) {
-	    // 	margin-top: 40px;
-	    // 	width: 400px;
-	    // }
-
-	    // @include media-only(small-mobile, max) {
-	    // 	margin-top: 30px;
-	    // 	width: 285px;
-	    // }
-
-		// h1,
-		// h2 {
-		// 	text-transform: uppercase;
-		// 	line-height: 1;
-		// 	// @include cx-default-color(color, white);
-		// 	@extend %color-white;
-		// }
-		// h1 {
-		//     font-size: 60px;
-		//     margin: 0 0 20px;
-
-		//     @include respond-to(notebook) {
-		//     	font-size: 50px;
-		//     }
-
-		//     @include respond-to(tablet) {
-		//     	font-size: 36px;
-		//     }
-
-		//     @include respond-to(mobile) {
-		//     	font-size: 32px;
-		//     }
-
-		//     @include media-only(small-mobile, max) {
-		//     	font-size: 28px;
-		//     }
-		// }
-
-		// h2 {
-		//     margin: 5px 0 0;
-		//     font-size: 34px;
-		//     font-weight: 400;
-
-		//     @include respond-to(notebook) {
-		//     	font-size: 30px;
-		//     }
-
-		//     @include respond-to(tablet) {
-		//     	font-size: 22px;
-		//     }
-
-		//     @include respond-to(mobile) {
-		//     	font-size: 20px;
-		//     }
-
-		//     @include media-only(small-mobile, max) {
-		//     	font-size: 18px;
-		//     }
-		// }
-
-		// p {
-		//     text-transform: inherit;
-		//     margin: 5px 0 0;
-		//     font-size: 86px;
-		//     font-weight: 600;
-		//     line-height: 1;
-		//     // @include cx-default-color(color, white);
-		//     @extend %color-white;
-
-		//     @include respond-to(notebook) {
-		//     	font-size: 66px;
-		//     }
-
-		//     @include respond-to(tablet) {
-		//     	font-size: 44px;
-		//     }
-
-		//     @include respond-to(mobile) {
-		//     	font-size: 40px;
-		//     }
-
-		//     @include media-only(small-mobile, max) {
-		//     	font-size: 34px;
-		//     }
-		// }
+	    @include media-only(small-mobile, max) {
+	    	max-width: 100%;
+	    	left: 0;
+	    	padding-left: 15px;
+	    	padding-right: 15px;
+	    }
 
 		.promo-title {
 		    text-transform: capitalize;
@@ -194,6 +112,14 @@
 		    line-height: 25px;
 		    margin-bottom: 15px;
 
+		    @include respond-to(tablet) {
+		    	font-size: 16px;
+		    }
+
+		    @include respond-to(mobile) {
+		    	font-size: 14px;
+		    }
+
 		    span {
 			    text-transform: uppercase;
 			    padding: 5.5px 12px;
@@ -203,6 +129,10 @@
 			    letter-spacing: 0;
 			    @extend %bgc-primary;
 			    @extend %color-white;
+
+			    @include respond-to(mobile) {
+			    	font-size: 11px;
+			    }
 		    }
 		}
 
@@ -220,6 +150,18 @@
 		    span {
 		    	display: block;
 		    }
+
+		    @include respond-to(notebook) {
+		    	font-size: 50px;
+		    }
+
+		    @include respond-to(tablet) {
+		    	font-size: 36px;
+		    }
+
+		    @include respond-to(mobile) {
+		    	font-size: 30px;
+		    }
 		}
 
 		.subtitle {
@@ -228,11 +170,24 @@
 		    width: 75%;
 		    font-weight: 300;
 		    margin-top: 20px;
+
+		    @include respond-to(tablet) {
+		    	font-size: 15px;
+		    }
+
+		    @include respond-to(mobile) {
+		    	font-size: 14px;
+		    	font-weight: 400;
+		    }
+
+		    @include media-only(small-mobile, max) {
+		    	width: 100%;
+		    }
 		}
 
 		.slide-button {
 			margin:30px 0 0;
-			@include media-only(tablet, min) {
+			@include media-only(notebook, min) {
 				.default-btn {
 					padding: 0 25px;
 					height: 46px;
@@ -240,6 +195,13 @@
 					min-width: 180px;
 				}
 			}
+
+		    @include respond-to(tablet) {
+			    height: 40px;
+			    line-height: 40px;
+			    min-width: 140px;
+			    font-size: 13px;
+		    }
 
 		    @include respond-to(mobile) {
 		    	margin-top: 20px;
@@ -349,43 +311,60 @@
 		}
 	}
 
-	// &:not([class*='slider-type-']) {
-	// 	@include media-only(notebook, min) {
-	// 		.swiper-pagination {
-	// 			display: none;
-	// 		}
-	// 	}
-	// }
-
-	// &.slider-4 {
-	// 	@include media-only(notebook, min) {
-	// 		.swiper-pagination {
-	// 			display: block;
-	// 		}
-	// 	}
-	// }
-
 	&.slider-type-2 {
 		
 		.slide-content {
 			top: 58%;
 
+			@include media-only(notebook, max) {
+				max-width: 60%;
+				top: 50%;
+			}
+
+			@include respond-to(mobile) {
+			    max-width: 80%;
+			    width: 100%;
+			}
+
+			@include media-only(small-mobile, max) {
+				max-width: 100%;
+			}
+
 			h1 {
 				font-size: 72px;
-				line-height: 48px;
 				span {
 					display: inline-block;
+				}
+
+				@include respond-to(tablet) {
+					font-size: 50px;
+				}
+
+				@include respond-to(mobile) {
+					font-size: 40px;
 				}
 			}
 
 			.subtitle {
 				font-size: 18px;
-				line-height: 18px;
 				margin-top: 40px;
+
+				@include media-only(small-mobile, max) {
+					font-size: 16px;
+					margin-top: 30px;
+				}
 			}
 
 			.slide-button {
 				margin-top: 80px;
+		
+				@include media-only(notebook, max) {
+					margin-top: 40px;
+				}
+
+				@include media-only(small-mobile, max) {
+					margin-top: 30px;
+				}
 			}
 		}
 	}
@@ -395,15 +374,46 @@
 			max-width: 60%;
 			padding-left: 130px;
 
+			@include respond-to(tablet) {
+				padding-left: 70px;
+			}
+
+			@include respond-to(mobile) {
+				padding-left: 30px;
+				max-width: 80%;
+			}
+
+			@include media-only(small-mobile, max) {
+				max-width: 100%;
+				padding-left: 15px;
+			}
+
 			h1 {
-				line-height: 48px;
 				span {
 					display: inline-block;
 				}
 			}
+			
+			.subtitle {
+				@include respond-to(mobile) {
+					width: 80%;
+				}
+
+				@include media-only(small-mobile, max) {
+					width: 90%;
+				}
+			}
 
 			.slide-button {
-				margin-top: 70px;
+				margin-top: 0.9 * $cx-section-spacing;
+
+				@include respond-to(tablet) {
+					margin-top: 0.6 * $cx-section-spacing;
+				}
+
+				@include respond-to(mobile) {
+					margin-top: 30px;
+				}
 			}
 		}	
 	}
@@ -414,15 +424,60 @@
 			top: 70%;
 			padding-left: 20px;
 
+			@media only screen and (max-width: 1300px) {
+				top: 65%;
+			}
+
+			@include media-only(tablet, max) {
+				padding-left: 0;
+			}
+
+			@include media-only(small-mobile, max) {
+			    top: 50%;
+			    padding-left: 5px;
+			    padding-right: 0;
+			}
+
+			.promo-title {
+				@include respond-to(notebook) {
+					font-size: 16px;
+				}
+
+				@include media-only(small-mobile, max) {
+					span {
+						display: block;
+					    width: 110px;
+					    height: 25px;
+					    line-height: 1.45;
+					    margin-bottom: 5px;
+					}
+				}
+			}
+
 			h1 {
-				line-height: 48px;
 				span {
 					display: inline-block;
+				}
+
+				@media only screen and (max-width: 1300px) {
+					font-size: 46px;
+				}
+
+				@include respond-to(notebook) {
+					font-size: 40px;
+				}
+
+				@include media-only(tablet, max) {
+					font-size: 40px;
+				}
+
+				@include media-only(small-mobile, max) {
+					font-size: 28px;
 				}
 			}
 
 			.slide-button {
-				margin-top: 50px;
+				@extend %mt-half;
 			}
 		}
 

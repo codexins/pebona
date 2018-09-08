@@ -26,224 +26,33 @@
 		}
 
 		@include respond-to(tablet) {
+			height: 450px;
+		}
+
+		@include respond-to(mobile) {
 			height: 430px;
+		}
+	}
+
+	&.slider-type-2 {
+		height: 730px;
+
+		@include respond-to(tablet) {
+			height: 450px;
+		}
+
+		@include respond-to(mobile) {
+			height: 430px;
+		}
+	}
+
+	&.slider-type-4 {
+		@include respond-to(tablet) {
+			height: 450px;
 		}
 
 		@include respond-to(mobile) {
 			height: 400px;
 		}
 	}
-
-	&.slider-type-2 {
-		height: 730px;
-	}
-
-	// &.slider-type-3 {
-	// 	@extend .slider-type-2;
-	// 	@include respond-to(tablet) {
-	// 		height: 440px;
-	// 	}
-	// 	@include media-only(small-mobile, max) {
-	// 		height: 400px;
-	// 	}
-
-	// 	.layer-animation-1 {
-	// 		&.slide-content {
-	// 			width: 345px;
-	// 			left: 60px;
-	// 			top: 60px;
-
-	// 			@include respond-to(mobile) {
-	// 				left: 30px;
-	// 				top: 70px;
-	// 			}
-
-	// 			@include media-only(small-mobile, max) {
-	// 				left: 20px;
-	// 				width: 87%;
-	// 			}
-				
-	// 			h1 {
-	// 				font-size: 48px;
-	// 				@include respond-to(notebook) {
-	// 					font-size: 32px;
-	// 				}
-
-	// 				@include media-only(small-mobile, max) {
-	// 					font-size: 40px;
-	// 				}
-	// 			}
-
-	// 			h2 {
-	// 				font-size: 36px;
-	// 				@include respond-to(notebook) {
-	// 					font-size: 24px;
-	// 				}
-
-	// 				@include respond-to(tablet) {
-	// 					font-size: 32px;
-	// 				}
-
-	// 				@include respond-to(mobile) {
-	// 					font-size: 28px;
-	// 				}
-
-	// 				@include media-only(small-mobile, max) {
-	// 					font-size: 20px;
-	// 				}
-	// 			}
-
-	// 			p {
-	// 				font-size: 64px;
-	// 				@include respond-to(notebook) {
-	// 					font-size: 40px;
-	// 				}
-
-	// 				@include respond-to(tablet) {
-	// 					font-size: 54px;
-	// 				}
-
-	// 				@include respond-to(mobile) {
-	// 					font-size: 46px;
-	// 				}
-
-	// 				@include media-only(small-mobile, max) {
-	// 					font-size: 40px;
-	// 				}
-	// 				span {
-	// 					&:first-child {
-	// 						font-size: 18px;
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-
-	// 	.layer-animation-2 {
-	// 		&.slide-content {
-	// 			left: inherit;
-	// 			right: 37px;
-	// 			width: 345px;
-	// 			top: 80px;
-	// 			@include respond-to(notebook) {
-	// 				top: 60px;
-	// 			}
-
-	// 			@include respond-to(mobile) {
-	// 				width: 250px;
-	// 			}
-
-	// 			@include media-only(small-mobile, max) {
-	// 				right: 20px;
-	// 			}
-				
-	// 			h1 {
-	// 				font-size: 72px;
-	// 				margin: 0;
-	// 				line-height: 1;
-	// 				text-transform: uppercase;
-	// 				@include respond-to(notebook) {
-	// 					font-size: 45px;
-	// 				}
-
-	// 				@include respond-to(mobile) {
-	// 					font-size: 48px;
-	// 				}
-
-	// 				@include media-only(small-mobile, max) {
-	// 					font-size: 40px;
-	// 				}
-	// 			}
-
-	// 			h2 {
-	// 				font-size: 48px;
-	// 				margin: 0;
-	// 				text-transform: uppercase;
-	// 				@include respond-to(notebook) {
-	// 					font-size: 38px;
-	// 				}
-
-	// 				@include respond-to(mobile) {
-	// 					font-size: 35px;
-	// 				}
-
-	// 				@include media-only(small-mobile, max) {
-	// 					font-size: 30px;
-	// 				}
-	// 			}
-
-	// 			p {
-	// 				line-height: 25px;
-	// 				margin: 20px 0 0;
-
-	// 				@include media-only(small-mobile, max) {
-	// 					span {
-	// 						font-size: 16px;
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
-
-	// &.slider-4 {
-	// 	.slide-content {
-	// 	    width: 520px;
-	// 	    left: 80px;
-	// 	    margin: 0;
-
-	// 	    @include respond-to(tablet) {
-	// 	    	width: 420px;
-	// 	    }
-
-	// 	    @include respond-to(mobile) {
-	// 	    	width: 80%;
-	// 	    	left: 45px;
-	// 	    }
-
-	// 	    @include media-only(small-mobile, max) {
-	// 	    	left: 30px;
-	// 	    }
-
-	// 	    h1 {
-	// 	    	margin: 0;
-
-	// 	    	@include media-only(small-mobile, max) {
-	// 	    		font-size: 24px;
-	// 	    	}
-	// 	    }
-
-	// 	    h2 {
-	// 	    	margin-top: 25px;
-	// 	    	font-size: 24px;
-	// 	    	text-transform: initial;
-	// 	    }
-
-	// 	    p {
-	// 	    	font-size: 70px;
-	// 	    	margin-top: 13px;
-
-	// 	    	// @include cx-color(secondary, color);
-	// 	    	@extend %color-secondary;
-
-	// 		    @include respond-to(mobile) {
-	// 				font-size: 50px;
-	// 		    }
-
-	// 	    	@include media-only(small-mobile, max) {
-	// 	    		font-size: 40px;
-	// 	    	}
-	// 	    }
-
-	// 	    .default-btn {
-	// 	    	&:hover,
-	// 	    	&:focus {
-	// 	    		// @include cx-color(secondary, bg);
-	// 	    		// @include cx-color(secondary, border);
-	// 	    		@extend %bgc-secondary;
-	// 	    		@extend %border-secondary;
-	// 	    	}
-	// 	    }
-	// 	}
-	// }
 }

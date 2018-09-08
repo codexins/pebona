@@ -8,10 +8,6 @@
     list-style: none;
     padding: 0;
     z-index: 1;
-	// flex: 0 0 100%;
- //    max-width: 100%;
- //    padding-left: 15px;
- //    padding-right: 15px;
     @extend %overflow-hidden;
     @extend .pos-r;
 
@@ -99,6 +95,14 @@
     	top: 50%;
     	width: 41%;
     	@extend .pos-a;
+
+    	@include respond-to(tablet) {
+    		width: 38%;
+    	}
+
+    	@include respond-to(mobile) {
+			content: none;
+    	}
     }
 
     &::before {
@@ -110,6 +114,14 @@
     	background: url(../images/backgrounds/right-bg.png);
     	right: 0;
     	width: 41%;
+
+    	@include respond-to(tablet) {
+    		width: 38%;
+    	}
+
+    	@include respond-to(mobile) {
+			content: none;
+    	}
     }
 }
 

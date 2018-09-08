@@ -6,6 +6,15 @@
 .header-search-area {
 	form {
 	    max-width: 200px;
+
+	    @include respond-to(mobile) {
+	    	max-width: 155px;
+	    }
+
+	    @include media-only(small-mobile, max) {
+	    	max-width: 200px;
+	    	margin: auto;
+	    }
 	}
 	input {
 		&[type="text"] {
@@ -29,6 +38,10 @@
 	    i {
 			font-weight: bold;
 		    font-size: 20px;
+
+		    @include respond-to(mobile) {
+		    	font-size: 22px;
+		    }
 	    }
 	}
 

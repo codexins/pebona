@@ -44,7 +44,7 @@ gulp.task('sass', function() {
         // .pipe(gcmq())
         .pipe(gulp.dest('dev/assets/css')) // destination
         .pipe(cssbeautify())
-        .pipe(gulp.dest('dist/ororus/assets/css')) // final build destination
+        .pipe(gulp.dest('dist/pebona/assets/css')) // final build destination
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -53,25 +53,25 @@ gulp.task('sass', function() {
 // Gulp fonts function
 gulp.task('fonts', function() {
     return gulp.src('dev/assets/fonts/**/*')
-        .pipe(gulp.dest('dist/ororus/assets/fonts'))
+        .pipe(gulp.dest('dist/pebona/assets/fonts'))
 })
 
 // Gulp css function
 gulp.task('cx-css', function() {
     return gulp.src('dev/assets/css/*.css')
-        .pipe(gulp.dest('dist/ororus/assets/css'))
+        .pipe(gulp.dest('dist/pebona/assets/css'))
 })
 
 // Gulp php function
 gulp.task('cx-php', function() {
     return gulp.src('dev/*.php')
-        .pipe(gulp.dest('dist/ororus/'))
+        .pipe(gulp.dest('dist/pebona/'))
 })
 
 // Gulp js function
 gulp.task('cx-js', function() {
     return gulp.src('dev/assets/js/*.js')
-        .pipe(gulp.dest('dist/ororus/assets/js'))
+        .pipe(gulp.dest('dist/pebona/assets/js'))
 })
 
 // Gulp browser sync function
@@ -87,12 +87,12 @@ gulp.task('browserSync', function() {
 gulp.task('useref', function() {
     return gulp.src('dev/*.html')
         .pipe(useref())
-        .pipe(gulp.dest('dist/ororus'))
+        .pipe(gulp.dest('dist/pebona'))
 });
 
 // Clearing functions
 gulp.task('clean', function() {
-    return del.sync('dist/ororus');
+    return del.sync('dist/pebona');
 })
 
 gulp.task('clean-cache', function(callback) {
@@ -106,7 +106,7 @@ gulp.task('images', function() {
         .pipe(cache(imagemin({
             interlaced: true
         })))
-        .pipe(gulp.dest('dist/ororus/assets/images'))
+        .pipe(gulp.dest('dist/pebona/assets/images'))
 });
 
 // Gulp watchers

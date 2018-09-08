@@ -11,7 +11,6 @@
 	}
 	@extend .pos-r;
 	input[type="checkbox"] {
-		// position: absolute;
 		opacity: 0;
 		cursor: pointer;
 		width: 20%;
@@ -21,7 +20,6 @@
 	}
 
 	.checkmark {
-		// position: absolute;
 	    top: 0;
 	    left: 0;
 	    height: 20px;
@@ -33,7 +31,6 @@
 
 		&::after {
 		    content: "";
-		    // position: absolute;
 		    opacity: 0;
 		    left: 0;
 		    top: 3px;
@@ -58,7 +55,6 @@
 	}
 
 	input:checked ~ .checkmark {
-		// @include cx-color(primary, bg);
 		@extend %bgc-primary;
 
 		&::after {
@@ -101,14 +97,12 @@
 			width: 8px;
 			height: 8px;
 			@extend .circle;
-			// @include cx-default-color(bgc, white);
 			@extend %bgc-white;
 			@extend %cx-transition;
 	    }
 	}
 
     input[type="radio"] {
-	    // position: absolute;
 	    opacity: 0;
 	    cursor: pointer;
 		width: 100%;
@@ -116,7 +110,6 @@
 	    @extend .pos-a;
 
 	    &:checked ~ .checkmark {
-		    // @include cx-color(primary, bg);
 		    @extend %bgc-primary;
 
 		    &::after {
@@ -130,7 +123,6 @@
 .cart-input {
 	width: 76px;
 	text-align: left;
-	// margin-right: 20px;
 	@extend .pos-r;
 }
 

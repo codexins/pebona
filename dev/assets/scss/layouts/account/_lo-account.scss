@@ -6,11 +6,9 @@
 .user-dashboard {
 	a {
 		&:not(.btn) {
-			// @include cx-color(primary, color);
 			@extend %color-primary;
 
 			&:hover {
-				// @include cx-default-color(color, dark);
 				@extend %color-dark;
 			}
 		}
@@ -86,7 +84,6 @@
 		    font-family: Ionicons;
 		    font-size: 35px;
 		    left: 0;
-		    // position: absolute;
 		    top: 0;
 		    height: 45px;
 		    line-height: 45px;
@@ -127,10 +124,8 @@
 				    font-family: Ionicons;
 				    margin-left: 10px;
 				    font-size: 16px;
-				    // position: absolute;
 				    top: 48%;
 			        right: -35px;
-				    // transform: translateY(-50%);
 				    margin-top: -10px;
 				    @extend .pos-a;
 
@@ -201,7 +196,6 @@
     			> td {
 				    border: 0;
 				    vertical-align: middle;
-				    // @include cx-default-color(color, dark);
 				    @extend %color-dark;
     			}
     		}
@@ -272,14 +266,12 @@
 	    height: 40px;
 	    font-size: 13px;
 	    line-height: 40px;
-	    // position: absolute;
 	    right: 15px;
 	    top: 0;
 	    text-transform: capitalize;
 	    border-radius: 0;
 	    background: #878787;
 	    cursor: pointer;
-	    // @include cx-default-color(color, white);
 	    @extend %color-white;
 	    @extend .pos-a;
 

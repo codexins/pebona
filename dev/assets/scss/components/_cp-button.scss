@@ -15,15 +15,11 @@
     cursor: pointer;
     min-width: 140px;
     @extend %rounded-corners;
-    // @include cx-default-color(color, white);
-    // @include cx-color(primary, bg);
     @extend %color-white;
     @extend %bgc-dark;
 
     &:hover,
     &:focus {
-     //    @include cx-default-color(color, white);
-	    // @include cx-default-color(bgc, dark);
         box-shadow: none;
         @extend %bgc-primary;
         @extend %color-white;
@@ -31,13 +27,10 @@
 
     &.transparent {
     	border: 1px solid lighten($cx-text-color, 100%);
-    	// @include cx-default-color(bgc, transparent);
         @extend %bgc-transparent;
 
 	    &:hover,
 	    &:focus {
-		    // @include cx-color(primary, border);
-		    // @include cx-color(primary, bg);
             @extend %border-primary;
             @extend %bgc-primary;
 	    }
@@ -140,8 +133,6 @@
         &:hover,
         &:focus {
             box-shadow: none;
-            // @include cx-color(primary, bg);
-            // @include cx-default-color(color, white);
             @extend %bgc-primary;
             @extend %color-white;
         }

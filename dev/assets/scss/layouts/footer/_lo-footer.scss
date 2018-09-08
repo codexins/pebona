@@ -14,24 +14,7 @@
 	}
 
 	@include media-only(notebook, max) {
-		// .widgettitle {
-		// 	cursor: pointer;
-
-		// 	&::after {
-		// 	    content: "\f107";
-		// 	    display: block;
-		// 	    font-weight: 700;
-		// 	    font-family: FontAwesome;
-		// 	    font-size: 20px;
-		// 	    position: absolute;
-		// 	    right: 0;
-		// 	    top: 0;
-		// 	    color: #333;
-		// 	}
-		// }
-
 		.widget-content {
-		    // display: none;
 		    margin-bottom: 40px;
 		}
 		
@@ -86,32 +69,28 @@
 			@extend %mb0;
 		}
 	}
+
+	.list-inline {
+		@extend %mb0;
+	}
+
+	@include media-only(notebook, max) {
+		.footer-inner {
+			.row {
+				> div[class*='col-'] {
+					&:last-child {
+						.widget-content {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 }
-
-// .footer-description {
-// 	@extend %pt-full;
-// 	@extend %pb-full;
-
-// 	h2 {
-// 	    font-size: 18px;
-// 	    margin: 0;
-// 	    text-transform: capitalize;
-// 	    // @include cx-default-color(color, black);
-// 	}
-
-// 	p {
-// 	    font-size: 14px;
-// 	    margin: 16px 0 0;
-// 	    line-height: 25px;
-// 	    font-weight: 300;
-// 	    // @include cx-default-color(color, black);
-// 	}
-// }
 
 .footer-copyright {
 	padding: 20px 0;
-	// @include cx-color(primary, bg);
-	// @include cx-default-color(color, white);
 	color: #808080;
 
 	p {
@@ -120,11 +99,9 @@
 	}
 
 	a {
-		// @include cx-default-color(color, white);
 		@extend %color-primary;
 
 		&:hover {
-			// @include cx-default-color(color, dark);
 			@extend %color-white;
 		}
 	}
@@ -157,22 +134,7 @@
 
 		.footer-payment {
 			margin-top: 20px;
-
-			ul {
-				text-align: center;
-			}
+			text-align: center;
 		}
 	}
-
-	// .color-scheme-two & {
-	// 	@include cx-default-color(color, dark);
-
-	// 	a {
-	// 		@include cx-default-color(color, dark);
-
-	// 		&:hover {
-	// 			@include cx-default-color(color, white);
-	// 		}
-	// 	}
-	// }
 }

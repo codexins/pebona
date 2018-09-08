@@ -14,13 +14,11 @@
 
     .breadcrumb-item {
     	font-size: 14px;
-    	// @include cx-default-color(color, black);
     	@extend %color-black;
     	@extend .pos-r;
 
 		&:hover,
 		&:focus {
-			// @include cx-color(primary, color);
 			@extend %color-primary;
 		}
     	
@@ -42,7 +40,7 @@
 	    }
 
 	    &.active {
-	    	// @include cx-color(primary, color);
+	    	font-weight: 500;
 	    	@extend %color-primary;
 	    }
     }

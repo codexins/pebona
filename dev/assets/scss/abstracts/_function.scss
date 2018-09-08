@@ -25,3 +25,14 @@
     @warn "unknown color `#{$color}` in palette";
     @return null;
 }
+
+
+
+//-------------------- SASS Color change with BG Color --------------------//
+@function change-text-color($color) {
+    @if (lightness($color) > 50) {
+        @return #000000; // Lighter backgorund, return dark color
+    } @else {
+        @return #ffffff; // Darker background, return light color
+    }
+}

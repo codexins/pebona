@@ -4,7 +4,7 @@
  */
 
 .blog-grid-area {
-	margin-bottom: - $cx-col-spacing;
+	margin-bottom: $cx-col-spacing;
 }
 
 .blog-row {
@@ -13,6 +13,12 @@
 }
 
 .mini-blog {
+	@include media-only(small-mobile, max) {
+		.post-content {
+			text-align: center;
+		}
+	}
+
 	.element-carousel {
 		padding-top: 0;
 		padding-bottom: 0;
@@ -25,7 +31,7 @@
 		.post-thumbnail {
 				a {
  				&::before, {
-				    transform: scale3d(0.9, 0.9, 0.9);
+				    transform: scale3d(0.9, 0.87, 0.9);
 				    opacity: 1;
  				}
 

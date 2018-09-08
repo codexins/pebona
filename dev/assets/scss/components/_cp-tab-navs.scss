@@ -24,17 +24,29 @@
 		    text-transform: uppercase;
 		    border: 0;
 		    @extend %bgc-transparent;
-		    // @include cx-default-color(color, black);
 		    @extend %color-secondary;
+
+		    @include respond-to(mobile) {
+		    	padding: 0;
+		    }
 
 			&:hover,
 		    &.active {
-				// @include cx-color(primary, border);
-				// @include cx-default-color(bgc, transparent);
-				// @include cx-color(primary, color);
 				@extend %border-primary;
 				@extend %bgc-transparent;
 				@extend %color-primary;
+		    }
+		}
+
+		.nav-item {
+		    &:last-child {
+		    	.nav-link {
+		    		padding-right: 15px;
+
+		    		@include media-only(small-mobile, max) {
+		    			padding-right: 0;
+		    		}
+		    	}
 		    }
 		}
 	}
@@ -66,7 +78,7 @@
 				.product-layout {
 					.shop-products-wrapper & {
 						animation-delay: 0.1s;
-						animation-duration: 0.7s;
+						animation-duration: 0.5s;
 					    animation-name: zoomIn;
 					}
 				}
@@ -80,7 +92,7 @@
 				 &.anime-tab {
 					.product-layout {
 						animation-delay: 0.1s;
-						animation-duration: 0.7s;
+						animation-duration: 0.5s;
 					    animation-name: fadeInRightShort;
 					}
 				}
