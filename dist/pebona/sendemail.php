@@ -358,10 +358,16 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-5">
                             <div class="newsletter-form-wrapper">
-                                <form action="index.html" method="post">
-                                    <input type="email" name="email" placeholder="Enter you email address here..." value="" required> 
-                                    <input type="submit" class="default-btn" name="contact" value="Subscribe">
+                                <form class="mc-subscribe-form">
+                                    <input type="email" autocomplete="off" placeholder="Enter you email address here..." required> 
+                                    <input type="submit" class="default-btn" value="Subscribe">
                                 </form>
+
+                                <div class="mailchimp-alerts">
+                                    <div class="mailchimp-submitting"></div>
+                                    <div class="mailchimp-success"></div>
+                                    <div class="mailchimp-error"></div>
+                                </div><!-- end of mailchimp-alerts -->
                             </div>
                         </div>
                     </div> <!-- end of row -->
@@ -435,12 +441,18 @@
                                     <div class="widget-content">
                                         <div class="newsletter-widget">
                                             <p>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</p>
-                                            <form action="#">
+                                            <form class="mc-subscribe-form">
                                                 <div class="input-group">
-                                                    <input type="text" placeholder="Your Email Address" required>
+                                                    <input type="email" autocomplete="off" placeholder="Your Email Address" required>
                                                     <button class="default-btn" type="submit">Sign Up</button>
                                                 </div>
-                                            </form>
+                                            </form> <!-- end of form -->
+
+                                            <div class="mailchimp-alerts">
+                                                <div class="mailchimp-submitting"></div>
+                                                <div class="mailchimp-success"></div>
+                                                <div class="mailchimp-error"></div>
+                                            </div><!-- end of mailchimp-alerts -->
                                         </div>
                                     </div> <!-- end of widget-content -->
                                 </aside> <!-- end of widget-container -->

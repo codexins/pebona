@@ -15,6 +15,7 @@ INDEX:
     s10 - Scroll to Top JS
     s11 - Interactive Behaviour
     s12 - Instagram Settings
+    s13 - MailChimp Settings
 
 
 
@@ -45,7 +46,8 @@ INDEX:
         $intelHeader        = $(".main-nav-area"),
         $footer             = $("#colophon"),
         $priceRange         = $("#price_slider"),
-        $instagram          = $("#instagram_feed");
+        $instagram          = $("#instagram_feed"),
+        $mailChimp          = $(".mc-subscribe-form");
 
 
     // Check if element exists
@@ -636,6 +638,33 @@ INDEX:
     };
 
 
+    /************************************************************
+        s13 - MailChimp Settings
+    *************************************************************/
+
+    ORORUS.mcSettings = function() {
+        if ($mailChimp.elExists()) {
+            $mailChimp.ajaxChimp({
+                language: 'en',
+                callback: mailChimpResponse,
+                
+                // ADD YOUR MAILCHIMP URL BELOW HERE!
+                url: 'https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef'
+            });
+
+            function mailChimpResponse(resp) {                
+                if (resp.result === 'success') {
+                    $('.mailchimp-success').addClass('active').html('' + resp.msg).fadeIn(900);
+                    $('.mailchimp-error').removeClass('active').fadeOut(400);
+                    
+                } else if(resp.result === 'error') {
+                    $('.mailchimp-error').addClass('active').html('' + resp.msg).fadeIn(900);
+                }
+            }
+        }
+    };
+
+
 
     // Window load functions
     $window.on('load', function() {
@@ -653,6 +682,7 @@ INDEX:
         ORORUS.testimonialCarousel(),
         ORORUS.scrollToTop(),        
         ORORUS.toolTips(),
+        ORORUS.mcSettings(),
         ORORUS.instagramSettings();
     });
 
