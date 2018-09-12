@@ -26,7 +26,7 @@ INDEX:
     "use strict";
 
     // Declaring main variable
-    var ORORUS = {};
+    var PEBONA = {};
 
 
     /************************************************************
@@ -59,7 +59,7 @@ INDEX:
     /************************************************************
         s01 - Nice Select Init
     *************************************************************/
-    ORORUS.niceInit = function() {
+    PEBONA.niceInit = function() {
         $niceSelect.niceSelect();
     };
 
@@ -68,7 +68,7 @@ INDEX:
         s02 - Main Navigation Menu
     *************************************************************/
 
-    ORORUS.mainNav = function() {
+    PEBONA.mainNav = function() {
         $mainMenu.stellarNav({
             theme: 'plain',
             breakpoint: 991,
@@ -94,7 +94,7 @@ INDEX:
         s03 - Image Background Settings
     *************************************************************/
 
-    ORORUS.imageBgSettings = function() {
+    PEBONA.imageBgSettings = function() {
         $(".bg-img-wrapper").each(function() {
             var $this = $(this);
             var img = $this.find("img.visually-hidden").attr("src");
@@ -112,7 +112,7 @@ INDEX:
         s04 - Primary Slider Settings
     *************************************************************/
 
-    ORORUS.primarySlider = function() {
+    PEBONA.primarySlider = function() {
         if ($pSlider.elExists()) {
 
             var interleaveOffset = 0.5;
@@ -183,7 +183,7 @@ INDEX:
         s05 - Elements Spacing & Classes
     *************************************************************/
 
-    ORORUS.ElementsSpacingClasses = function() {
+    PEBONA.ElementsSpacingClasses = function() {
 
         // Fixed Navigation Menu Height
         var headerHeight = $intelHeader[0].getBoundingClientRect().height;
@@ -239,7 +239,7 @@ INDEX:
         s06 - Elements Carousel
     *************************************************************/
 
-    ORORUS.elementsCarousel = function() {
+    PEBONA.elementsCarousel = function() {
 
         var visibleSlides       = null;
         var visibleSlides_xl    = null;
@@ -362,7 +362,7 @@ INDEX:
         s07 - Tooltips
     *************************************************************/
 
-    ORORUS.toolTips = function() {
+    PEBONA.toolTips = function() {
         $('body').tooltip( {selector: '[data-toggle=tooltip]'} );
     };
 
@@ -371,7 +371,7 @@ INDEX:
         s08 - Product Gallery with Thumbnails
     *************************************************************/
 
-    ORORUS.galleryWithThumb = function() {
+    PEBONA.galleryWithThumb = function() {
         if ($galleryThumbs.elExists()) {
 
             // Params
@@ -449,7 +449,7 @@ INDEX:
         s09 - Testimonial Carousel
     *************************************************************/
 
-    ORORUS.testimonialCarousel = function() {
+    PEBONA.testimonialCarousel = function() {
         if ($testimonial.elExists()) {
             var testimonial = new Swiper($testimonial, {
                 loop: true,
@@ -478,7 +478,7 @@ INDEX:
         s10 - Scroll to Top JS
     *************************************************************/
 
-    ORORUS.scrollToTop = function() {
+    PEBONA.scrollToTop = function() {
         $toTop.hide();
         $window.on('scroll', function() {
             if ($window.scrollTop() > 300) {
@@ -500,7 +500,7 @@ INDEX:
         s11 - Interactive Behaviour
     *************************************************************/
 
-    ORORUS.interactiveBehaviour = function() {
+    PEBONA.interactiveBehaviour = function() {
 
         // Checkout Page Accordion Behaviour
         $( '#show_login' ).on('click', function() {
@@ -584,7 +584,7 @@ INDEX:
         s12 - Instagram Settings
     *************************************************************/
 
-    ORORUS.instagramSettings = function() {
+    PEBONA.instagramSettings = function() {
         if ($instagram.elExists()) {
             var feed = new Instafeed({
                 get: 'user',
@@ -642,7 +642,7 @@ INDEX:
         s13 - MailChimp Settings
     *************************************************************/
 
-    ORORUS.mcSettings = function() {
+    PEBONA.mcSettings = function() {
         if ($mailChimp.elExists()) {
             $mailChimp.ajaxChimp({
                 language: 'en',
@@ -668,27 +668,27 @@ INDEX:
 
     // Window load functions
     $window.on('load', function() {
-        ORORUS.primarySlider(),
-        ORORUS.interactiveBehaviour();
-        ORORUS.imageBgSettings();
+        PEBONA.primarySlider(),
+        PEBONA.interactiveBehaviour();
+        PEBONA.imageBgSettings();
     });
 
     // Document ready functions
     $document.on('ready', function() {
-        ORORUS.niceInit(),
-        ORORUS.mainNav(),
-        ORORUS.elementsCarousel(),
-        ORORUS.galleryWithThumb(),
-        ORORUS.testimonialCarousel(),
-        ORORUS.scrollToTop(),        
-        ORORUS.toolTips(),
-        ORORUS.mcSettings(),
-        ORORUS.instagramSettings();
+        PEBONA.niceInit(),
+        PEBONA.mainNav(),
+        PEBONA.elementsCarousel(),
+        PEBONA.galleryWithThumb(),
+        PEBONA.testimonialCarousel(),
+        PEBONA.scrollToTop(),        
+        PEBONA.toolTips(),
+        PEBONA.mcSettings(),
+        PEBONA.instagramSettings();
     });
 
     // Window load and resize functions
     $window.on('load resize', function() {
-        ORORUS.ElementsSpacingClasses();
+        PEBONA.ElementsSpacingClasses();
     });
 
 })(jQuery);
