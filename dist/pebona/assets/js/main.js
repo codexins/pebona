@@ -262,16 +262,16 @@ INDEX:
                 var $this = $(this);
 
                 // Fetching from data attributes
-                var visibleSlides       = $this.attr("data-visible-slide") ? parseInt($this.attr("data-visible-slide")) : 5;
-                var visibleSlides_xl    = $this.attr("data-visible-xl-slide") ? parseInt($this.attr("data-visible-xl-slide")) : 5;
-                var visibleSlides_lg    = $this.attr("data-visible-lg-slide") ? parseInt($this.attr("data-visible-lg-slide")) : 4;
-                var visibleSlides_md    = $this.attr("data-visible-md-slide") ? parseInt($this.attr("data-visible-md-slide")) : 3;
-                var visibleSlides_sm    = $this.attr("data-visible-sm-slide") ? parseInt($this.attr("data-visible-sm-slide")) : 2;
-                var visibleSlides_xs    = $this.attr("data-visible-xs-slide") ? parseInt($this.attr("data-visible-xs-slide")) : 1;
-                var slideSpeed          = $this.attr("data-speed") ? parseInt($this.attr("data-speed")) : 1000;
+                var visibleSlides       = $this.attr("data-visible-slide") ? parseInt($this.attr("data-visible-slide"), 10) : 5;
+                var visibleSlides_xl    = $this.attr("data-visible-xl-slide") ? parseInt($this.attr("data-visible-xl-slide"), 10) : 5;
+                var visibleSlides_lg    = $this.attr("data-visible-lg-slide") ? parseInt($this.attr("data-visible-lg-slide"), 10) : 4;
+                var visibleSlides_md    = $this.attr("data-visible-md-slide") ? parseInt($this.attr("data-visible-md-slide"), 10) : 3;
+                var visibleSlides_sm    = $this.attr("data-visible-sm-slide") ? parseInt($this.attr("data-visible-sm-slide"), 10) : 2;
+                var visibleSlides_xs    = $this.attr("data-visible-xs-slide") ? parseInt($this.attr("data-visible-xs-slide"), 10) : 1;
+                var slideSpeed          = $this.attr("data-speed") ? parseInt($this.attr("data-speed"), 10) : 1000;
                 var slideLoop           = $this.attr("data-loop") === 'true' ? 1 : 0;
-                var slideSpace          = $this.attr("data-space-between") ? parseInt($this.attr("data-space-between")) : 30;
-                var slideAutoPlayDelay  = $this.attr("data-autoplay-delay") ? parseInt($this.attr("data-autoplay-delay")) : 100000000;
+                var slideSpace          = $this.attr("data-space-between") ? parseInt($this.attr("data-space-between"), 10) : 30;
+                var slideAutoPlayDelay  = $this.attr("data-autoplay-delay") ? parseInt($this.attr("data-autoplay-delay"), 10) : 100000000;
                 var slideEffect         = $this.attr("data-effect") ? $this.attr("data-effect") : 'slide';
 
                 // Adding slider and slider-nav instances to use multiple times in a page
@@ -652,11 +652,10 @@ INDEX:
                 url: 'https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef'
             });
 
-            function mailChimpResponse(resp) {                
+            function mailChimpResponse(resp) {
                 if (resp.result === 'success') {
                     $('.mailchimp-success').addClass('active').html('' + resp.msg).fadeIn(900);
                     $('.mailchimp-error').removeClass('active').fadeOut(400);
-                    
                 } else if(resp.result === 'error') {
                     $('.mailchimp-error').addClass('active').html('' + resp.msg).fadeIn(900);
                 }
@@ -680,7 +679,7 @@ INDEX:
         PEBONA.elementsCarousel(),
         PEBONA.galleryWithThumb(),
         PEBONA.testimonialCarousel(),
-        PEBONA.scrollToTop(),        
+        PEBONA.scrollToTop(),
         PEBONA.toolTips(),
         PEBONA.mcSettings(),
         PEBONA.instagramSettings();
